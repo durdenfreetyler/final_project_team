@@ -1,11 +1,20 @@
-import React from "react";
-//import logo from "./logo.svg";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
+  const [data, setData] = React.useState("");
+
+  React.useEffect(() => {
+    fetch("/")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
   return (
-    <div className="p-5">
-    <h1>Hello World</h1>
+    <div className="App">
+      <header className="App-header">
+        <p>{!data ? "Loading..." : data}</p>
+      </header>
     </div>
   );
 }
