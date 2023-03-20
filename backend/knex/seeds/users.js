@@ -10,17 +10,25 @@ exports.seed = async function(knex) {
       first_name: 'Andrii',
       last_name: 'Andrii',
       password: 'test',
-      email: 'test@test.com'},
+      email: 'test@test.com',
+      is_player: true,
+      is_challenge_captain: false},
+
+
       {  
       first_name: 'Jack',
       last_name: 'Jack',
       password: 'test',
-      email: 'test1@test.com'},
+      email: 'test1@test.com',
+      is_player: true,
+      is_challenge_captain: false},
       {
       first_name: 'Abe',
       last_name: 'Abe',
       password: 'test',
-      email: 'test2@test.com'
+      email: 'test2@test.com',
+      is_player: true,
+      is_challenge_captain: false
     }
   ]);
 };

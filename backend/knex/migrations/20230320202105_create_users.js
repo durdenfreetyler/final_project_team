@@ -10,6 +10,9 @@ exports.up = function(knex) {
       table.string('last_name', 255).notNullable();
       table.string('email', 255).notNullable();
       table.string('password', 255).notNullable();
+      table.timestamp('created_date').defaultTo(knex.fn.now());
+      table.boolean('is_player').defaultTo(true);
+      table.boolean('is_challenge_captain').defaultTo(false);
   })
 
 };
