@@ -15,10 +15,10 @@ module.exports = {
       charset: 'utf8'
     },
     migrations: {
-      directory: final + '/knex/migrations',
+      directory: __dirname + '/knex/migrations',
     },
     seeds: {
-      directory: final + '/knex/seeds'
+      directory: __dirname + '/knex/seeds'
     }
   },
 
