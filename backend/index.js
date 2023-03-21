@@ -60,7 +60,6 @@ app.get("/u-uc", (req, res) => {
 app.get("/uc-c", (req, res) => {
   knex.select('*')
   .from('user_challenge')
-  //.leftJoin('user_challenge', 'user_challenge.user_id','users.id')
   .leftJoin('challenge', 'user_challenge.challenge_id', 'challenge.id')
   .then((result) =>{
     res.send(result);
