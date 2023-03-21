@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import ChallengeCreator from "./components/Login/challange_creator/ChallangeCreator";
 import Login from "./components/Login/Login";
 
 
@@ -36,10 +37,12 @@ function App() {
       {user_challenge.map(user_challenge => {return <div> {user_challenge.criteria_type} {user_challenge.progress} </div>})}
 
 
-        
-      <Login/>
+
+      <ChallengeCreator/>
     </div>
   );
 }
+
+
 
 export default App;
