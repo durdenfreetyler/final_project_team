@@ -4,19 +4,32 @@ import Login from "./components/Login/Login";
 
 
 function App() {
-  const [data, setData] = React.useState([]);
-
+  const [users, setUsers] = React.useState([]);
+  const [challenge, setChallenge] = React.useState([])
+  
+  
   React.useEffect(() => {
     fetch("/users")
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((users) => setUsers(users));
   }, []);
+
+  React.useEffect(() => {
+    fetch("/challenge")
+      .then((res) => res.json())
+      .then((challenge) => setChallenge(challenge));
+  }, []);
+
+
 
   return (
     <div>
-      {data.map(item => {
-        return <div> {item.first_name} {item.email} </div>
-      })}
+      {users.map(users => {return <div> {users.first_name} {users.email} </div>})}
+
+      {challenge.map(item => {return <div> {item.title} {item.description} </div>})}
+
+
+        
       <Login/>
     </div>
   );
