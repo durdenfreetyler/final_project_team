@@ -27,6 +27,13 @@ app.get("/challenge", (req, res) => {
   })  
 });
 
+app.get("/user_challenge", (req, res) => {
+  knex.select()
+  .from('user_challenge')
+  .then((result) =>{
+    res.json(result);
+  })  
+});
 
 
 app.listen(PORT, () => {

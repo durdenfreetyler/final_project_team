@@ -6,7 +6,7 @@ import Login from "./components/Login/Login";
 function App() {
   const [users, setUsers] = React.useState([]);
   const [challenge, setChallenge] = React.useState([])
-  
+  const [user_challenge, setUser_Challenge] = React.useState([])
   
   React.useEffect(() => {
     fetch("/users")
@@ -20,13 +20,20 @@ function App() {
       .then((challenge) => setChallenge(challenge));
   }, []);
 
+  React.useEffect(() => {
+    fetch("/user_challenge")
+      .then((res) => res.json())
+      .then((user_challenge) => setUser_Challenge(user_challenge));
+  }, []);
 
 
   return (
     <div>
       {users.map(users => {return <div> {users.first_name} {users.email} </div>})}
 
-      {challenge.map(item => {return <div> {item.title} {item.description} </div>})}
+      {challenge.map(challenge => {return <div> {challenge.title} {challenge.description} </div>})}
+
+      {user_challenge.map(user_challenge => {return <div> {user_challenge.criteria_type} {user_challenge.progress} </div>})}
 
 
         
