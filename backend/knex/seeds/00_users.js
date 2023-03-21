@@ -22,7 +22,7 @@ exports.seed = async function(knex) {
       email: 'test1@test.com',
       is_player: true,
       is_challenge_captain: false},
-      {
+      { 
       first_name: 'Abe',
       last_name: 'Abe',
       password: 'test',
