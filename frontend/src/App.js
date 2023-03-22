@@ -5,23 +5,23 @@ import Login from "./components/Login/Login";
 
 
 function App() {
-  const [users, setUsers] = React.useState([]);
-  const [challenge, setChallenge] = React.useState([])
-  const [user_challenge, setUser_Challenge] = React.useState([])
+  const [users, setUsers] = useState([]);
+  const [challenge, setChallenge] = useState([])
+  const [user_challenge, setUser_Challenge] = useState([])
   
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("/users")
       .then((res) => res.json())
       .then((users) => setUsers(users));
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("/challenge")
       .then((res) => res.json())
       .then((challenge) => setChallenge(challenge));
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("/user_challenge")
       .then((res) => res.json())
       .then((user_challenge) => setUser_Challenge(user_challenge));
