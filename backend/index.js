@@ -48,7 +48,8 @@ app.post('/challenge', async (req, res) => {
       description,
       difficulty,
       time_limit,
-      reward_points
+      reward_points,
+      created_by
     });
 
     res.json({ message: 'Challenge created successfully' });
