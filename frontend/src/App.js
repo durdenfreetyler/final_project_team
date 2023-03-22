@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import ChallengeForm from "./components/challenge_creator /ChallengeCreator";
 import Login from "./components/Login/Login";
 
 
@@ -43,6 +44,7 @@ function App() {
 
         
       <Login/>
+      <ChallengeForm/>
     </div>
   );
 }
