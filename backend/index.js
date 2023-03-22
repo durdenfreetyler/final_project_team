@@ -1,8 +1,11 @@
 const express = require("express");
 const cors = require('cors')
+const knex = require('./knex/knex')
+
+const router = express.Router();
 const PORT = process.env.PORT || 3001;
 const app = express();
-const knex = require('./knex/knex')
+
 
 app.use(cors()); 
 app.use(express.json());
@@ -19,6 +22,7 @@ app.get("/users", (req, res) => {
     res.json(result);
   })  
 });
+
 app.get("/challenge", (req, res) => {
   knex.select()
   .from('challenge')
@@ -33,6 +37,25 @@ app.get("/user_challenge", (req, res) => {
   .then((result) =>{
     res.json(result);
   })  
+});
+
+app.post('/challenge', async (req, res) => {
+  try {
+    const { title, description, difficulty, time_limit, reward_points, created_by } = req.body;
+
+    await knex('challenge').insert({
+      title,
+      description,
+      difficulty,
+      time_limit,
+      reward_points
+    });
+
+    res.json({ message: 'Challenge created successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal server error');
+  }
 });
 
 
