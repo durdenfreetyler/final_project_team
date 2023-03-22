@@ -29,12 +29,17 @@ function App() {
 
   return (
     <div>
-      {users.map(users => {return <div> {users.first_name} {users.email} </div>})}
+      <select>
+      {users.map(users => {return <option> {users.first_name} {users.email} </option>})}
+      </select>
 
-      {challenge.map(challenge => {return <div> {challenge.title} {challenge.description} </div>})}
-
-      {user_challenge.map(user_challenge => {return <div> {user_challenge.criteria_type} {user_challenge.progress} </div>})}
-
+      <select>
+      {challenge.map(challenge => {return <option> {challenge.title} {challenge.description} </option>})}
+      </select>
+      
+      <select>
+      {user_challenge.map(user_challenge => {return <option> {user_challenge.criteria_type} {user_challenge.progress} </option>})}
+      </select>
 
         
       <Login/>
