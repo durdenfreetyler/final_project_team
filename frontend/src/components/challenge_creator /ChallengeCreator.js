@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../scss/challenge.scss";
 
 function ChallengeForm() {
   const [title, setTitle] = useState("");
@@ -76,7 +77,7 @@ function ChallengeForm() {
       </form>
 
       {challenges.map((challenge) => (
-        <div key={challenge.id}>
+        <div className="card" key={challenge.id}>
           <h2>{challenge.title}</h2>
           <p>{challenge.description}</p>
           <p>Difficulty: {challenge.difficulty}</p>
