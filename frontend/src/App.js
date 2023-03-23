@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+// import
 import ChallengeForm from "./components/challenge_creator /ChallengeCreator";
 import Login from "./components/Login/Login";
+import HomePage from "./components/front-page/FrontPage";
 
 
 function App() {
@@ -29,23 +30,8 @@ function App() {
 
 
   return (
-    <div>
-      <select>
-      {users.map(users => {return <option> {users.first_name} {users.email} </option>})}
-      </select>
-
-      <select>
-      {challenge.map(challenge => {return <option> {challenge.title} {challenge.description} </option>})}
-      </select>
-      
-      <select>
-      {user_challenge.map(user_challenge => {return <option> {user_challenge.criteria_type} {user_challenge.progress} </option>})}
-      </select>
-
-        
-      <Login/>
-      <ChallengeForm/>
-    </div>
+ 
+      <HomePage/>
   );
 }
 
