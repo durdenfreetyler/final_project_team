@@ -1,34 +1,54 @@
 import React, { useState } from "react";
 import "../../scss/challenge.scss";
+import axios from "axios";
 
 function ChallengeForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [difficulty, setDifficulty] = useState("easy");
-  const [timeLimit, setTimeLimit] = useState("");
-  const [rewardPoints, setRewardPoints] = useState("");
   const [challenges, setChallenges] = useState([]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newChallenge = {
       title,
       description,
-      difficulty,
-      timeLimit,
-      rewardPoints,
-      id: Math.random(),
+      created_by: 1, // replace with the actual user id
     };
-    setChallenges([...challenges, newChallenge]);
-    setTitle("");
-    setDescription("");
-    setTimeLimit("");
-    setRewardPoints("");
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/challenge",
+        newChallenge,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+        //Hi Abe, this is Rohit. I want to try out a few things. Let get on to a call. I will send the Link for Google meet
+        //Ok. No worries. I am sending a link to what you should try out
+        //https://devpress.csdn.net/react/6304dabb7e6682346619cf13.html
+        //go down and try out! Best of luck. OK sounds good!
+        //Thank you, we will try it out and will call in if any further assistance needed.
+        // I am not sure if abe is here, he was talking about getting on the personal call like 5 mins ago
+      );
+      setChallenges([...challenges, response.data]);
+      setTitle("");
+      setDescription("");
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
-  const handleDelete = (id) => {
-    const updatedChallenges = challenges.filter((challenge) => challenge.id !== id);
-    setChallenges(updatedChallenges);
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/challenge/${id}`);
+      const updatedChallenges = challenges.filter(
+        (challenge) => challenge.id !== id
+      );
+      setChallenges(updatedChallenges);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -49,30 +69,6 @@ function ChallengeForm() {
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
-        <label>
-          Difficulty:
-          <select value={difficulty} onChange={(event) => setDifficulty(event.target.value)}>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-        </label>
-        <label>
-          Time Limit (in seconds):
-          <input
-            type="number"
-            value={timeLimit}
-            onChange={(event) => setTimeLimit(event.target.value)}
-          />
-        </label>
-        <label>
-          Reward Points:
-          <input
-            type="number"
-            value={rewardPoints}
-            onChange={(event) => setRewardPoints(event.target.value)}
-          />
-        </label>
         <button type="submit">Create Challenge</button>
       </form>
 
@@ -80,9 +76,6 @@ function ChallengeForm() {
         <div className="card" key={challenge.id}>
           <h2>{challenge.title}</h2>
           <p>{challenge.description}</p>
-          <p>Difficulty: {challenge.difficulty}</p>
-          <p>Time Limit: {challenge.timeLimit} seconds</p>
-          <p>Reward Points: {challenge.rewardPoints}</p>
           <button onClick={() => handleDelete(challenge.id)}>Delete</button>
         </div>
       ))}
