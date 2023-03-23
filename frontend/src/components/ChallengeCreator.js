@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../scss/challenge.scss";
+import "./challenge.scss";
 import axios from "axios";
 
 function ChallengeForm() {
