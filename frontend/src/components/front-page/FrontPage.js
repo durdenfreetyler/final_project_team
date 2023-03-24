@@ -2,6 +2,7 @@ import { Button } from 'antd';
 import React from 'react';
 import "../../scss/app.scss"
 import Leaderboard from './leaderboard'
+import Slideshow from './SlideShow';
 import SignupSlideshow from './SlideShow';
 // import Leader_Button from './leaderbaord-button'
 
@@ -71,7 +72,7 @@ function HomePage() {
  </div>
  
   </div>
-  
+  <Slideshow></Slideshow>
     </div>
     <Leaderboard></Leaderboard>
     <footer>
