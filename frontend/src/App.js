@@ -4,7 +4,7 @@ import Cookies from "js-cookie"
 import ChallengeForm from "./components/challenge_creator/ChallengeCreator";
 import Login from "./components/Login/Login";
 import HomePage from "./components/front-page/FrontPage";
-import DashboardPage from "./components/dashboard/DashBoardPage";
+//import DashboardPage from "./components/dashboard/DashBoardPage";
 import Leaderboard from "./components/front-page/LeaderBoard";
 import Slideshow from "./components/front-page/SlideShow";
 import ChallengeList from "./components/challenge_creator/ChallengeList";

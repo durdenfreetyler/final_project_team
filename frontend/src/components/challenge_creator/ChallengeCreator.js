@@ -46,8 +46,18 @@ function ChallengeForm() {
   };
 
   const handleDelete = async (id) => {
+    console.log("Clicked");
+    console.log("challenges", challenges);
     try {
-      await axios.delete(`http://localhost:3001/challenge/${id}`);
+      const res = await axios({
+        baseURL: `http://localhost:3001/challenge`,
+        url: `/${id}`,
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+      // const res = await axios.delete(`http://localhost:3001/challenge`, {id} )
+      console.log('response', res);
       const updatedChallenges = challenges.filter(
         (challenge) => challenge.id !== id
       );

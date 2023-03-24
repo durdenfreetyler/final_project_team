@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 app.use(
   cors({
     origin: "http://localhost:3000",
-    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD","DELETE"],
     credentials: true,
   })
 );
@@ -168,18 +168,19 @@ app.get("/uc-c", (req, res) => {
       res.send(result);
     });
 });
-
-app.delete('/challenge/:id"', (req, res) => {
-  knex("/challenge")
-    .where(id, req.params.id)
+// delets last added challenge
+app.delete("/challenge/:id", (req, res) => {
+  //console.log("params", req.params)
+  knex("challenge")
+    .where('challenge.id', req.params.id)
     .del()
     .then(() => {
       knex
         .select()
-        .from("/challenge")
+        .from("challenge")
         .then((result) => {
           res.send(result);
-        });
+        }); 
     });
 });
 
@@ -187,17 +188,3 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-/*
-app.delete('/challenge/:id"', (req, res) => {
-  knex('/challenge')
-    .where(id, req.params.id)
-    .del()
-    .then(() => {
-      knex.select()
-        .from('/challenge')
-        .then((result) => {
-          res.send(result);
-        });
-    });  
-
-}); */
