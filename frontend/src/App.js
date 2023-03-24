@@ -40,7 +40,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<DashboardPage />} element={<ChallengeList key={userId} userId={userId} challenge={challenge}/>} />
+        <Route path="/dashboard" element={<ChallengeList />}  />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
         <Route path="/login" element={<Login />} />
