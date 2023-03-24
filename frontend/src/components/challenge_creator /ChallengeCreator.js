@@ -5,13 +5,22 @@ import axios from "axios";
 function ChallengeForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [points, setPoints] = useState(1);
+  const [expirationDate, setExpirationDate] = useState("");
   const [challenges, setChallenges] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const options = { month: "numeric", day: "numeric", year: "numeric" };
+    const formattedDate = new Date(expirationDate).toLocaleDateString(
+      "en-US",
+      options
+    );
     const newChallenge = {
       title,
       description,
+      points,
+      expiration_date: formattedDate,
       created_by: 1, // replace with the actual user id
     };
     try {
@@ -24,16 +33,12 @@ function ChallengeForm() {
           },
           withCredentials: true,
         }
-        //Hi Abe, this is Rohit. I want to try out a few things. Let get on to a call. I will send the Link for Google meet
-        //Ok. No worries. I am sending a link to what you should try out
-        //https://devpress.csdn.net/react/6304dabb7e6682346619cf13.html
-        //go down and try out! Best of luck. OK sounds good!
-        //Thank you, we will try it out and will call in if any further assistance needed.
-        // I am not sure if abe is here, he was talking about getting on the personal call like 5 mins ago 
       );
       setChallenges([...challenges, response.data]);
       setTitle("");
       setDescription("");
+      setPoints(1);
+      setExpirationDate("");
     } catch (error) {
       console.error(error.message);
     }
@@ -69,6 +74,24 @@ function ChallengeForm() {
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
+        <label>
+          Points:
+          <input
+            type="number"
+            min="1"
+            max="5"
+            value={points}
+            onChange={(event) => setPoints(event.target.value)}
+          />
+        </label>
+        <label>
+          Challenge To Be Completed By:
+          <input
+            type="datetime-local"
+            value={expirationDate}
+            onChange={(event) => setExpirationDate(event.target.value + ":00")}
+          />
+        </label>
         <button type="submit">Create Challenge</button>
       </form>
 
@@ -76,6 +99,8 @@ function ChallengeForm() {
         <div className="card" key={challenge.id}>
           <h2>{challenge.title}</h2>
           <p>{challenge.description}</p>
+          <p>Points: {challenge.points}</p>
+          <p>Expiration Date: {challenge.expiration_date}</p>
           <button onClick={() => handleDelete(challenge.id)}>Delete</button>
         </div>
       ))}

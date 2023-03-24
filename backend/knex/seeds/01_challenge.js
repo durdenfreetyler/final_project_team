@@ -1,25 +1,186 @@
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
-exports.seed = async function(knex) {
+exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('challenge').del()
-  await knex('challenge').insert([
-    { 
-      title: 'FirstOne',
-      description: 'this is the first chellenge',
-      created_by: 1
+  await knex("challenge").del();
+  await knex("challenge").insert([
+    {
+      title: "Row That Boat",
+      description: "3-minute max calories row.",
+      points: 4,
+      expiration_date: "2023-04-05",
+      created_by: 8,
+      created_at: knex.fn.now(),
     },
     {
-       
-      title: 'Second',
-      description: 'this is the second chellenge',
-      created_by: 2},
+      title: "Run One",
+      description: "Run a mile without stopping",
+      points: 3,
+      expiration_date: "2023-03-31",
+      created_by: 1,
+      created_at: knex.fn.now(),
+    },
     {
-       
-      title: 'Third',
-      description: 'this is the third chellenge',
-      created_by: 3},
+      title: "Jack Jumps",
+      description: "50 jumping jacks for time.",
+      points: 5,
+      expiration_date: "2023-04-15",
+      created_by: 1,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Squat It",
+      description: "100 bodyweight squats for time",
+      points: 2,
+      expiration_date: "2023-02-11",
+      created_by: 2,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Sweat It Out",
+      description: "30-minute HIIT workout",
+      points: 3,
+      expiration_date: "2023-03-15",
+      created_by: 2,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Plank Challenge",
+      description: "Hold plank for 2 minutes",
+      points: 2,
+      expiration_date: "2023-04-01",
+      created_by: 3,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Morning Miles",
+      description: "Run 3 miles before breakfast",
+      points: 5,
+      expiration_date: "2023-01-31",
+      created_by: 3,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Jump Rope Jive",
+      description: "100 jump ropes in 1 minute",
+      points: 2,
+      expiration_date: "2023-02-15",
+      created_by: 6,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Burpee Challenge",
+      description: "Complete 50 burpees in 10 minutes",
+      points: 3,
+      expiration_date: "2023-01-01",
+      created_by: 7,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Core Blast",
+      description: "Complete 50 sit-ups and 50 crunches",
+      points: 3,
+      expiration_date: "2023-03-31",
+      created_by: 8,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Hiking Challenge",
+      description: "Hike 5 miles in 2 hours or less",
+      points: 5,
+      expiration_date: "2023-03-15",
+      created_by: 10,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Plank & Push-up",
+      description: "20 push-ups and 1-minute plank",
+      points: 2,
+      expiration_date: "2023-04-11",
+      created_by: 6,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Boxing Burnout",
+      description: "Punching bag workout for 30 minutes",
+      points: 4,
+      expiration_date: "2023-03-11",
+      created_by: 6,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Weight Lifting",
+      description: "10 reps of 3 weight-lifting exercises",
+      points: 3,
+      expiration_date: "2023-03-15",
+      created_by: 4,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Jumping Challenge",
+      description: "Jump over a hurdle 50 times",
+      points: 2,
+      expiration_date: "2023-02-01",
+      created_by: 9,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Running",
+      description: "Complete a 10K run in 1 hour",
+      points: 5,
+      expiration_date: "2023-04-26",
+      created_by: 8,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Cardio Countdown",
+      description: "30 minutes of intense cardio",
+      points: 4,
+      expiration_date: "2023-03-15",
+      created_by: 7,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Boxing Burnout",
+      description: "Punching bag workout for 30 minutes",
+      points: 4,
+      expiration_date: "2023-03-31",
+      created_by: 2,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Sprint Air Up",
+      description: "100 air squats, 100 push-ups, 100 sit-ups",
+      points: 3,
+      expiration_date: "2023-03-25",
+      created_by: 1,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Sprint Air Up - Level 2",
+      description: "400m sprint, 50 air squats, 30 push-ups",
+      points: 2,
+      expiration_date: "2023-02-01",
+      created_by: 5,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "5K for Pay",
+      description: "5k run for time",
+      points: 5,
+      expiration_date: "2023-03-31",
+      created_by: 6,
+      created_at: knex.fn.now(),
+    },
+    {
+      title: "Row That Boat",
+      description: "3-minute max calories row.",
+      points: 4,
+      expiration_date: "2023-04-05",
+      created_by: 8,
+      created_at: knex.fn.now(),
+    }
   ]);
 };

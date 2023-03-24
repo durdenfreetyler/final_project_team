@@ -15,7 +15,8 @@ exports.up = function (knex) {
         .inTable("challenge");
       table.string("criteria_type", 255).notNullable();
       table.string("criteria_value", 255).notNullable();
-      table.integer("progress").defaultTo(0);
+      table.integer("progress").defaultTo(0); //change boolean
+      table.boolean("is_completed").defaultTo(false);
       table.unique(["user_id", "challenge_id"]);
     });
 
