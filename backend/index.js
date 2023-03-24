@@ -54,7 +54,21 @@ app.post("/challenge", authenticateUser, (req, res) => {
     })
     .returning("*")
     .then((result) => {
-      res.status(201).json(result[0]);
+      console.log("result", result);
+      const challenge = result[0];
+
+      knex("user_challenge")
+        .insert({
+          user_id: req.user.id,
+          challenge_id: challenge.id,
+          criteria_type: "...",
+          criteria_value: "...",
+          progress: 0,
+          is_completed: false,
+        })
+        .then(() => {
+          res.status(201).json(challenge);
+        });
     })
     .catch((error) => {
       console.error(error);

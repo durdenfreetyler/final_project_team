@@ -15,7 +15,7 @@ exports.seed = async function(knex) {
       is_completed: false,
     },
     {
-      user_id: 3,
+      user_id: 1,
       challenge_id: 9,
       criteria_type: "repetitions",
       criteria_value: "50",
@@ -23,7 +23,7 @@ exports.seed = async function(knex) {
       is_completed: false,
     },
     {
-      user_id: 5,
+      user_id: 1,
       challenge_id: 14,
       criteria_type: "distance",
       criteria_value: "10",
@@ -31,7 +31,7 @@ exports.seed = async function(knex) {
       is_completed: false,
     },
     {
-      user_id: 6,
+      user_id: 1,
       challenge_id: 19,
       criteria_type: "time",
       criteria_value: "15",
