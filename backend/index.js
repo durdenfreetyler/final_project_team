@@ -148,3 +148,18 @@ app.get("/uc-c", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+/*
+app.delete('/challenge/:id"', (req, res) => {
+  knex('/challenge')
+    .where(id, req.params.id)
+    .del()
+    .then(() => {
+      knex.select()
+        .from('/challenge')
+        .then((result) => {
+          res.send(result);
+        });
+    });  
+
+}); */

@@ -1,5 +1,10 @@
+import { Button } from 'antd';
 import React from 'react';
-import "./App.scss"
+import "../../scss/app.scss"
+import Leaderboard from './LeaderBoard'
+import Slideshow from './SlideShow';
+import SignupSlideshow from './SlideShow';
+//import Leader_Button from './LeaderBoard_Button'
 
 
 function HomePage() {
@@ -7,9 +12,9 @@ function HomePage() {
     <div className="App">
       <header className="App-header">
       <nav class="navMenu">
-      <a href="#">Home</a>
-      <a href="#">Blog</a>
-      <a href="#">Work</a>
+      <a href="/">Home</a>
+      <a href="/dashboard">Account</a>
+      <a href="/create-challenge">Create</a>
       <a href="#">About</a>
       <div class="dot"></div>
     </nav>
@@ -17,8 +22,9 @@ function HomePage() {
 <h1>Challenge Champions</h1>
 <h3></h3>
 	<br></br>
-	<button>READ MORE</button>
+	<a href='/login' className='button'> login </a>
 		</div>
+    {/* <Leader_Button></Leader_Button> */}
       </header>
       <div className="images">
         <div className="images-row">
@@ -64,8 +70,11 @@ function HomePage() {
     <h2 class="challenge-title">30-Day Yoga Challenge</h2>
     <p class="challenge-description">Improve your flexibility and mindfulness by practicing yoga for 30 days straight.</p>
  </div>
+ 
   </div>
+  <Slideshow></Slideshow>
     </div>
+    <Leaderboard></Leaderboard>
     <footer>
   <div class="container">
     <div class="banana">

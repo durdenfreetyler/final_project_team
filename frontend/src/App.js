@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-//import "./App.css";
-import ChallengeForm from "./components/ChallengeCreator";
-import HomePage from "./components/FrontPage";
-//import Login from "./components/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ChallengeForm from "./components/challenge_creator/ChallengeCreator";
+import Login from "./components/Login/Login";
+import HomePage from "./components/front-page/FrontPage";
+import DashboardPage from "./components/dashboard/DashBoardPage";
+import Leaderboard from "./components/front-page/LeaderBoard";
+import Slideshow from "./components/front-page/SlideShow";
 
 
 function App() {
@@ -30,27 +33,43 @@ function App() {
 
 
   return (
-    <div>
-     {/* <select>
-      // maps users table into object and creates a dropdown with username from the table 
-      {users.map(users => {return <option> {users.first_name} {users.email} </option>})}
-      </select>
-
-      <select>
-      // maps challenge table into object and creates a dropdown with challenge title from the table 
-      {challenge.map(challenge => {return <option> {challenge.title} {challenge.description} </option>})}
-      </select>
-      
-      <select>
-      // maps user_challenge table into object and creates a dropdown with  criteria type from the table 
-      {user_challenge.map(user_challenge => {return <option> {user_challenge.criteria_type} {user_challenge.progress} </option>})}
-      </select> 
-      */}
-        
-      <HomePage/>
-      {/*<ChallengeForm/> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/slideshow" element={<Slideshow />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/create-challenge" element={<ChallengeForm />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+//<div>
+{/* <select>
+ // maps users table into object and creates a dropdown with username from the table 
+ {users.map(users => {return <option> {users.first_name} {users.email} </option>})}
+ </select>
+
+ <select>
+ // maps challenge table into object and creates a dropdown with challenge title from the table 
+ {challenge.map(challenge => {return <option> {challenge.title} {challenge.description} </option>})}
+ </select>
+ 
+ <select>
+ // maps user_challenge table into object and creates a dropdown with  criteria type from the table 
+ {user_challenge.map(user_challenge => {return <option> {user_challenge.criteria_type} {user_challenge.progress} </option>})}
+ </select> 
+ */}
+ {/*<ChallengeForm/> */}
+//</div>
