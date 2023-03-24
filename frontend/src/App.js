@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ChallengeForm from "./components/challenge_creator /ChallengeCreator";
 import Login from "./components/Login/Login";
 import HomePage from "./components/front-page/FrontPage";
-
+import DashboardPage from "./components/dashboard/DashBoardPage";
 
 function App() {
-  const [users, setUsers] = React.useState([]);
-  const [challenge, setChallenge] = React.useState([])
-  const [user_challenge, setUser_Challenge] = React.useState([])
-  
-  React.useEffect(() => {
+  const [users, setUsers] = useState([]);
+  const [challenge, setChallenge] = useState([]);
+  const [user_challenge, setUser_Challenge] = useState([]);
+
+  useEffect(() => {
     fetch("/users")
       .then((res) => res.json())
       .then((users) => setUsers(users));
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("/challenge")
       .then((res) => res.json())
       .then((challenge) => setChallenge(challenge));
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("/user_challenge")
       .then((res) => res.json())
       .then((user_challenge) => setUser_Challenge(user_challenge));
   }, []);
 
-
   return (
- 
-      <HomePage/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/create-challenge" element={<ChallengeForm />} />
+      </Routes>
+    </Router>
   );
 }
 
