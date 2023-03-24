@@ -66,7 +66,7 @@ p {
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
-  width: 80px;
+  width: 100px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -80,30 +80,30 @@ p {
   background: #ffffff;
   border-radius: 50%;
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(32px);
   transition: all 0.2s ease-in-out;
 }
 
 .navMenu a:nth-child(1):hover ~ .dot {
-  transform: translateX(30px);
+  transform: translateX(45px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu a:nth-child(2):hover ~ .dot {
-  transform: translateX(110px);
+  transform: translateX(145px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu a:nth-child(3):hover ~ .dot {
-  transform: translateX(200px);
+  transform: translateX(250px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu a:nth-child(4):hover ~ .dot {
-  transform: translateX(285px);
+  transform: translateX(345px);
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
@@ -160,20 +160,20 @@ header .overlay {
   background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.4117647059) 10%, #e7d8d8 100%);
 }
 
-h1 {
+header h1 {
   font-family: "Dancing Script", cursive;
   font-size: 80px;
   margin-bottom: 30px;
   margin-right: 100px;
 }
 
-h3, p {
+header h3, p {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 30px;
   display: flex;
 }
 
-button {
+.button {
   border: none;
   outline: none;
   padding: 10px 20px;
@@ -185,7 +185,7 @@ button {
   margin-right: 100px;
 }
 
-button:hover {
+.button:hover {
   cursor: pointer;
 }
 

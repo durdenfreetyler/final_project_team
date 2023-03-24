@@ -111,7 +111,7 @@ p {
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
-  width: 80px;
+  width: 100px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -127,38 +127,38 @@ p {
   border-radius: 50%;
   opacity: 0;
   -webkit-transform: translateX(30px);
-  transform: translateX(30px);
+  transform: translateX(32px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .navMenu a:nth-child(1):hover ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
+  -webkit-transform: translateX(45px);
+  transform: translateX(45px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu a:nth-child(2):hover ~ .dot {
-  -webkit-transform: translateX(110px);
-  transform: translateX(110px);
+  -webkit-transform: translateX(145px);
+  transform: translateX(145px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu a:nth-child(3):hover ~ .dot {
-  -webkit-transform: translateX(200px);
-  transform: translateX(200px);
+  -webkit-transform: translateX(250px);
+  transform: translateX(250px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu a:nth-child(4):hover ~ .dot {
-  -webkit-transform: translateX(285px);
-  transform: translateX(285px);
+  -webkit-transform: translateX(345px);
+  transform: translateX(345px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
@@ -222,20 +222,20 @@ header .overlay{
 	
 }
 
-h1 {
+header h1 {
 	font-family: 'Dancing Script', cursive;
 	font-size: 80px;
 	margin-bottom: 30px;
   margin-right: 100px;
 }
 
-h3, p {
+header h3, p {
 	font-family: 'Open Sans', sans-serif;
 	margin-bottom: 30px;
   display: flex;
 }
 
-button {
+.button {
 	border: none;
 	outline: none;
 	padding: 10px 20px;
@@ -246,7 +246,7 @@ button {
 	box-shadow: 0 3px 20px 0 #0000003b;
   margin-right: 100px;
 }
-button:hover{
+.button:hover{
 	cursor: pointer;
 }
 
