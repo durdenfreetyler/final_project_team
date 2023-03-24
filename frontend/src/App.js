@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie"
 import ChallengeForm from "./components/challenge_creator/ChallengeCreator";
 import Login from "./components/Login/Login";
 import HomePage from "./components/front-page/FrontPage";
 import DashboardPage from "./components/dashboard/DashBoardPage";
 import Leaderboard from "./components/front-page/LeaderBoard";
 import Slideshow from "./components/front-page/SlideShow";
+import ChallengeList from "./components/challenge_creator/ChallengeList";
 
 
 function App() {
   const [users, setUsers] = useState([]);
   const [challenge, setChallenge] = useState([])
   const [user_challenge, setUser_Challenge] = useState([])
+  const [userId, setUserId] = useState(Cookies.get("userId"));
+
   //Pulling in users table
   useEffect(() => {
     fetch("/users")
@@ -36,7 +40,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} element={<ChallengeList key={userId} userId={userId} challenge={challenge}/>} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
         <Route path="/login" element={<Login />} />
@@ -51,7 +55,7 @@ export default App;
 
 
 
-
+// <ChallengeList key={userId} userId={userId} challenge={challenge} />
 
 
 

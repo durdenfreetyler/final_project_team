@@ -43,11 +43,13 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/challenge", authenticateUser, (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, points, expiration_date } = req.body;
   knex("challenge")
     .insert({
       title,
       description,
+      points,
+      expiration_date,
       created_by: req.user.id,
     })
     .returning("*")
@@ -80,7 +82,7 @@ app.get("/challenge/:id", (req, res) => {
 // getting to challenge data table
 app.get("/challenge", (req, res) => {
   knex
-    .select()
+    .select("*")
     .from("challenge")
     .then((result) => {
       res.json(result);
@@ -88,11 +90,33 @@ app.get("/challenge", (req, res) => {
 });
 // getting to user_challenge data table
 app.get("/user_challenge", (req, res) => {
+  const userId = req.cookies.userId;
   knex
-    .select()
+    .select(
+      "user_challenge.id",
+      "user_challenge.user_id",
+      "user_challenge.challenge_id",
+      "challenge.title",
+      "challenge.description",
+      "challenge.points",
+      "user_challenge.criteria_type",
+      "user_challenge.criteria_value",
+      "user_challenge.progress",
+      "challenge.expiration_date"
+      // "user_challenge.completed_date"
+    )
     .from("user_challenge")
+    .join("challenge", "user_challenge.challenge_id", "=", "challenge.id")
+    .orderBy("user_challenge.id")
+    .where("user_challenge.user_id", userId)
     .then((result) => {
       res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .send("An error occurred while retrieving user challenge data.");
     });
 });
 // Join statement between User, User_Challenge, and Challenge tables
@@ -142,6 +166,20 @@ app.get("/uc-c", (req, res) => {
     .leftJoin("challenge", "user_challenge.challenge_id", "challenge.id")
     .then((result) => {
       res.send(result);
+    });
+});
+
+app.delete('/challenge/:id"', (req, res) => {
+  knex("/challenge")
+    .where(id, req.params.id)
+    .del()
+    .then(() => {
+      knex
+        .select()
+        .from("/challenge")
+        .then((result) => {
+          res.send(result);
+        });
     });
 });
 
