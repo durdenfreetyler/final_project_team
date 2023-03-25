@@ -30,8 +30,11 @@ function ChallengeList(props) {
             active.push(challenge);
           }
         });
-        setCurrentChallenges(active);
-        setExpiredChallenges(expired);
+        // console.log("in useEffect")
+        // console.log('active challenges', active)
+        // console.log('current challenges', currentChallenges)
+        setCurrentChallenges([...active]);
+        setExpiredChallenges([...expired]);
       } catch (error) {
         console.error(error.message);
       }
@@ -54,13 +57,16 @@ function ChallengeList(props) {
         withCredentials: true,
       });
       const newExpired = expiredChallenges.filter(
-        (challenge) => challenge.id !== id
+        (challenge) => challenge.challenge_id !== id
       );
+      //console.log('new expired', newExpired)
       setExpiredChallenges(newExpired);
       const newCurrent = currentChallenges.filter(
-        (challenge) => challenge.id !== id
+        (challenge) => challenge.challenge_id !== id
       );
+      //console.log('new Current', newCurrent)
       setCurrentChallenges(newCurrent);
+      //console.log('current challenges', currentChallenges)
     } catch (error) {
       console.error(error);
     }
@@ -78,7 +84,7 @@ function ChallengeList(props) {
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
           <p>Expiration Date: {challenge.expiration_date}</p>
-          <button onClick={() => handleDelete(challenge.id)}>Delete</button>
+          <button onClick={() => handleDelete(challenge.challenge_id)}>Delete</button>
         </div>
       ))}
       <h2>Expired Challenges</h2>
@@ -88,7 +94,7 @@ function ChallengeList(props) {
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
           <p>Expiration Date: {challenge.expiration_date}</p>
-          <button onClick={() => handleDelete(challenge.id)}>Delete</button>
+          <button onClick={() => handleDelete(challenge.challenge_id)}>Delete</button>
         </div>
       ))}
     </div>
