@@ -44,15 +44,23 @@ function ChallengeForm() {
       setPoints(1);
       setExpirationDate("");
       console.log("challenges", challenges);
-      console.log("response", response)
+      console.log("response", response);
     } catch (error) {
       console.error(error.message);
     }
   };
 
   const handleDelete = async (id) => {
+    //console.log("Clicked");
+    //console.log("challenges", challenges);
     try {
-      await axios.delete(`http://localhost:3001/challenge/${id}`);
+      await axios({
+        baseURL: `http://localhost:3001/challenge`,
+        url: `/${id}`,
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
       const updatedChallenges = challenges.filter(
         (challenge) => challenge.id !== id
       );

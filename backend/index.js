@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 app.use(
   cors({
     origin: "http://localhost:3000",
-    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
     credentials: true,
   })
 );
@@ -183,16 +183,22 @@ app.get("/uc-c", (req, res) => {
     });
 });
 
-app.delete('/challenge/:id"', (req, res) => {
-  knex("/challenge")
-    .where(id, req.params.id)
+app.delete("/challenge/:id", (req, res) => {
+  //console.log("params", req.params)
+  knex("user_challenge")
+    .where("challenge_id", req.params.id)
     .del()
     .then(() => {
-      knex
-        .select()
-        .from("/challenge")
-        .then((result) => {
-          res.send(result);
+      knex("challenge")
+        .where("challenge.id", req.params.id)
+        .del()
+        .then(() => {
+          knex
+            .select()
+            .from("challenge")
+            .then((result) => {
+              res.send(result);
+            });
         });
     });
 });
