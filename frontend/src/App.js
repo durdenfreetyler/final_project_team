@@ -8,7 +8,8 @@ import HomePage from "./components/front-page/FrontPage";
 import Leaderboard from "./components/front-page/LeaderBoard";
 import Slideshow from "./components/front-page/SlideShow";
 import ChallengeList from "./components/challenge_creator/ChallengeList";
-
+import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
+import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -40,7 +41,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<ChallengeList />}  />
+        <Route path="/dashboard" element={
+        <>
+        <ChallengeList />
+        <JoinChallenge />
+        <AvailableChallenges />
+        </>
+        } />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
         <Route path="/login" element={<Login />} />
