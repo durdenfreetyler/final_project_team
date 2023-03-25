@@ -54,7 +54,7 @@ app.post("/challenge", authenticateUser, (req, res) => {
     })
     .returning("*")
     .then((result) => {
-      console.log("result", result);
+      //console.log("result", result);
       const challenge = result[0];
 
       knex("user_challenge")
@@ -216,7 +216,7 @@ app.get("/uc-c", (req, res) => {
 });
 // delets last added challenge
 app.delete("/challenge/:id", (req, res) => {
-  console.log("params", req.params)
+  //console.log("params", req.params)
   knex("user_challenge")
     .where('challenge_id', req.params.id)
     .del()
@@ -229,7 +229,7 @@ app.delete("/challenge/:id", (req, res) => {
         .select()
         .from("challenge")
         .then((result) => {
-          console.log('result', result)
+          //console.log('result', result)
           res.send(result);
         }); 
       });  
