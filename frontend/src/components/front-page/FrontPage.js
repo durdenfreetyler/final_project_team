@@ -1,6 +1,8 @@
 import { Button } from 'antd';
 import React from 'react';
 import "../../scss/app.scss"
+import Background from './background';
+import Card from './cards';
 import Leaderboard from './LeaderBoard'
 import Slideshow from './SlideShow';
 import SignupSlideshow from './SlideShow';
@@ -10,6 +12,7 @@ import SignupSlideshow from './SlideShow';
 function HomePage() {
   return (
     <div className="App">
+       <Background></Background>
       <header className="App-header">
       <nav class="navMenu">
       <a href="/">Home</a>
@@ -26,6 +29,7 @@ function HomePage() {
 		</div>
     {/* <Leader_Button></Leader_Button> */}
       </header>
+      
       <div className="images">
         <div className="images-row">
           <div className="col-md-4">
@@ -44,8 +48,11 @@ function HomePage() {
             <img src="https://via.placeholder.com/250x100" alt="Placeholder" className="img-fluid" />
           </div>
         </div>
+        </div>
+        <Card></Card>
         <div class="grid">
         <div class="challenge-grid">
+        <Background></Background>
   <div class="challenge">
     <h2 class="challenge-title">30-Day Plank Challenge</h2>
     <p class="challenge-description">Build core strength and endurance by holding a plank for longer periods of time over 30 days.</p>
@@ -70,11 +77,9 @@ function HomePage() {
     <h2 class="challenge-title">30-Day Yoga Challenge</h2>
     <p class="challenge-description">Improve your flexibility and mindfulness by practicing yoga for 30 days straight.</p>
  </div>
- 
   </div>
   <Slideshow></Slideshow>
     </div>
-    <Leaderboard></Leaderboard>
     <footer>
   <div class="container">
     <div class="banana">
@@ -102,7 +107,6 @@ function HomePage() {
   </div>
 </footer>
 
-      </div>
     </div>
   );
 }

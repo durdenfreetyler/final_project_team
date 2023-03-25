@@ -1,16 +1,24 @@
 import AwesomeSlider from 'react-awesome-slider';
-import CoreStyles from 'react-awesome-slider/src/core/styles.scss';
-import AnimationStyles from 'react-awesome-slider/src/styled/fold-out-animation/fold-out-animation.scss';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import 'react-awesome-slider/dist/styles.css';
+import "../../scss/slidshow.scss"
+
+
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export default function Slideshow() {
   return (
-    <AwesomeSlider
-    animation="foldOutAnimation"
-    cssModule={[CoreStyles, AnimationStyles]}
-  >
-    <div data-src="https://www.stjude.org/content/sites/www/en_US/home/about-st-jude/visit/locations/jcr:content/par-2/cnt_row_1788835022/par-1/cnt_column/par-1/cnt_image.img.1000.high.jpg/1575903774676.jpg" />
-    <div data-src="https://www.stjude.org/content/sites/www/en_US/home/about-st-jude/visit/locations/jcr:content/par-2/cnt_row_1788835022/par-1/cnt_column/par-1/cnt_image.img.1000.high.jpg/1575903774676.jpg" />
-    <div data-src="https://www.stjude.org/content/sites/www/en_US/home/about-st-jude/visit/locations/jcr:content/par-2/cnt_row_1788835022/par-1/cnt_column/par-1/cnt_image.img.1000.high.jpg/1575903774676.jpg" />
-  </AwesomeSlider>
+    <AutoplaySlider
+      play={true}
+      cancelOnInteraction={false} // should stop playing on user interaction
+      interval={5000}
+    >
+      
+      <div data-src="https://i0.wp.com/theatlantavoice.com/wp-content/uploads/2020/03/stjude-1.jpg?w=780&ssl=1" />
+      <div data-src="https://i0.wp.com/theatlantavoice.com/wp-content/uploads/2020/03/stjude-1.jpg?w=780&ssl=1" />
+      <div data-src="/https://i0.wp.com/theatlantavoice.com/wp-content/uploads/2020/03/stjude-1.jpg?w=780&ssl=1" />
+      <div data-src="/path/to/image-4.png" />
+      <div data-src="/path/to/image-5.png" />
+    </AutoplaySlider>
   );
 }
