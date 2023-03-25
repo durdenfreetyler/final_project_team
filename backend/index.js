@@ -28,6 +28,34 @@ const authenticateUser = (req, res, next) => {
   }
 };
 
+app.put("/user_challenge/:id", authenticateUser, async (req, res) => {
+  const { is_completed } = req.body;
+  const userId = req.user.id;
+
+  try {
+    const userChallenge = await knex("user_challenge")
+      .where({ id: req.params.id, user_id: userId })
+      .first();
+
+    if (!userChallenge) {
+      res.status(404).json({ message: "User challenge not found" });
+      return;
+    }
+
+    const updatedChallenge = await knex("user_challenge")
+      .where({ id: req.params.id, user_id: userId })
+      .update({ is_completed })
+      .returning("*");
+    console.log("updatedChallenge", updatedChallenge);
+    res
+      .status(200)
+      .json({ message: "User challenge updated", data: updatedChallenge[0] });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
 app.get("/", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
@@ -42,34 +70,34 @@ app.get("/users", (req, res) => {
     });
 });
 
-app.post("/donations", authenticateUser, async (req, res) => {
-  const { user_challenge_id, charity_id, amount } = req.body;
-  const userId = req.user.id;
+// app.post("/donations", authenticateUser, async (req, res) => {
+//   const { user_challenge_id, charity_id, amount } = req.body;
+//   const userId = req.user.id;
 
-  try {
-    // Check if the user is already in the challenge
-    const userChallenge = await knex("user_challenge")
-      .where({ user_id: userId, id: user_challenge_id })
-      .first();
+//   try {
+//     // Check if the user is already in the challenge
+//     const userChallenge = await knex("user_challenge")
+//       .where({ user_id: userId, id: user_challenge_id })
+//       .first();
 
-    if (!userChallenge) {
-      res.status(400).json({ message: "User challenge not found" });
-      return;
-    }
+//     if (!userChallenge) {
+//       res.status(400).json({ message: "User challenge not found" });
+//       return;
+//     }
 
-    // Insert the donation into the donations table
-    await knex("donations").insert({
-      user_challenge_id,
-      charity_id,
-      amount,
-    });
+//     // Insert the donation into the donations table
+//     await knex("donations").insert({
+//       user_challenge_id,
+//       charity_id,
+//       amount,
+//     });
 
-    res.status(201).json({ message: "Donation added successfully" });
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
-  }
-});
+//     res.status(201).json({ message: "Donation added successfully" });
+//   } catch (error) {
+//     console.error(error);
+//     res.sendStatus(500);
+//   }
+// });
 
 app.post("/challenge", authenticateUser, (req, res) => {
   const { title, description, points, expiration_date } = req.body;
@@ -139,6 +167,7 @@ app.get("/user_challenge", (req, res) => {
       "user_challenge.id",
       "user_challenge.user_id",
       "user_challenge.challenge_id",
+      "user_challenge.completed_before_expiration",
       "challenge.title",
       "challenge.description",
       "challenge.points",
@@ -188,7 +217,8 @@ app.get("/u-uc", (req, res) => {
 app.post("/user_challenge", authenticateUser, async (req, res) => {
   const { challengeId } = req.body;
   const userId = req.user.id;
-
+  console.log("req", req.body);
+  console.log("res", res);
   try {
     // Check if the user is already in the challenge
     const userChallenge = await knex("user_challenge")
@@ -208,6 +238,7 @@ app.post("/user_challenge", authenticateUser, async (req, res) => {
       criteria_value: "...",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     });
 
     res.status(201).json({ message: "User joined the challenge" });

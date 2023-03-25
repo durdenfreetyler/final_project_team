@@ -17,6 +17,7 @@ exports.up = function (knex) {
     table.string("criteria_value", 255).notNullable();
     table.integer("progress").defaultTo(0); //change boolean
     table.boolean("is_completed").defaultTo(false);
+    table.boolean("completed_before_expiration").notNullable().defaultTo(false);
     table.unique(["user_id", "challenge_id"]);
     });
 

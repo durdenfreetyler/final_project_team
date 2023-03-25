@@ -8,24 +8,34 @@ function ChallengeList(props) {
 
   const handleChallengeCheckIn = async (challengeId) => {
     try {
-      await axios.put(
+      const response = await axios.put(
         `http://localhost:3001/user_challenge/${challengeId}`,
         { is_completed: true },
         { withCredentials: true }
       );
-      // Update the state of the currentChallenges array to reflect the change in is_completed status
+      const updatedChallenge = response.data.data;
+
+      // Remove the updated challenge from the currentChallenges array
       setCurrentChallenges((prevChallenges) =>
-        prevChallenges.map((challenge) =>
-          challenge.id === challengeId
-            ? { ...challenge, is_completed: true }
-            : challenge
-        )
+        prevChallenges.filter((challenge) => challenge.id !== challengeId)
       );
+
+      // Add the updated challenge to the expiredChallenges array
+      setExpiredChallenges((prevChallenges) => [
+        ...prevChallenges,
+        {
+          ...currentChallenges.find(
+            (challenge) => challenge.id === challengeId
+          ),
+          is_completed: true,
+        },
+      ]);
+
+      console.log("response", response);
     } catch (error) {
       console.error(error.message);
     }
   };
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,19 +46,24 @@ function ChallengeList(props) {
         );
         const challenges = response.data;
         const currentDate = new Date().getTime();
-        const expired = [];
-        const active = [];
-        challenges.forEach((challenge) => {
-          console.log("challenge", challenge);
-          if (
+        const expired = challenges.filter(
+          (challenge) =>
             currentDate >=
             new Date(challenge.expiration_date.toString()).getTime()
-          ) {
-            expired.push(challenge);
-          } else {
-            active.push(challenge);
-          }
-        });
+        );
+        for (const challenge of expired) {
+          const userChallenge = await axios.get(
+            `http://localhost:3001/user_challenge?user_id=${userId}&challenge_id=${challenge.id}`,
+            { withCredentials: true }
+          );
+          challenge.completed_before_expiration =
+            userChallenge.data[0].completed_before_expiration; // updated
+        }
+        const active = challenges.filter(
+          (challenge) =>
+            currentDate <
+            new Date(challenge.expiration_date.toString()).getTime()
+        );
         setCurrentChallenges(active);
         setExpiredChallenges(expired);
       } catch (error) {
@@ -57,8 +72,8 @@ function ChallengeList(props) {
     };
     fetchData();
   }, [userId]);
-  console.log(expiredChallenges);
-  console.log(currentChallenges);
+  // console.log(expiredChallenges);
+  // console.log(currentChallenges);
   return (
     <div>
       <h2>Current Challenges</h2>
@@ -81,10 +96,21 @@ function ChallengeList(props) {
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
           <p>Expiration Date: {challenge.expiration_date}</p>
+          {challenge.completed_before_expiration ? (
+            <p>
+              Player completed challenge before expiration and did not to
+              charity
+            </p>
+          ) : (
+            <p>
+              Player did not complete challenge before expiration and donated to
+              charity
+            </p>
+          )}
         </div>
       ))}
     </div>
   );
 }
-//ss
+
 export default ChallengeList;
