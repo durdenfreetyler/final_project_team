@@ -12,11 +12,8 @@ import { Helmet } from 'react-helmet';
 
 //import Leader_Button from './LeaderBoard_Button'
 
-<Helmet>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  </Helmet>
-  
+
+
 function HomePage() {
   
   return (
@@ -24,6 +21,10 @@ function HomePage() {
     <div className="App">
        <Background></Background>
       <header className="App-header">
+      <Helmet>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </Helmet>
       <nav class="nav-Bar">
       <a href="#" class="logo">Challenge Champions</a>
       <div class="nav-links">
@@ -126,20 +127,20 @@ function HomePage() {
         <div class="footer-nav">
           <div class="3d-menu">
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/">About</a></li>
+              <li><a href="/dashboard">Contact</a></li>
               <li><a href="#">Service</a></li>
-              <li><a href="#">Play list</a></li>
-              <li><a href="#">Subscribe</a></li>
-              <li><a href="#">Like</a></li>
+              <li><a href="/dashboard">Create challenge</a></li>
+              <li><a href="/login">Subscribe</a></li>
+              <li><a href="/login">Like</a></li>
             </ul>
           </div>
         </div>
 
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2023 Wok & Roll. All rights reserved.</p>
+        <p>&copy; 2023 Challenge Champions. All rights reserved.</p>
       </div>
     </footer>
 
