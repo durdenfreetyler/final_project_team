@@ -42,6 +42,35 @@ app.get("/users", (req, res) => {
     });
 });
 
+app.post("/donations", authenticateUser, async (req, res) => {
+  const { user_challenge_id, charity_id, amount } = req.body;
+  const userId = req.user.id;
+
+  try {
+    // Check if the user is already in the challenge
+    const userChallenge = await knex("user_challenge")
+      .where({ user_id: userId, id: user_challenge_id })
+      .first();
+
+    if (!userChallenge) {
+      res.status(400).json({ message: "User challenge not found" });
+      return;
+    }
+
+    // Insert the donation into the donations table
+    await knex("donations").insert({
+      user_challenge_id,
+      charity_id,
+      amount,
+    });
+
+    res.status(201).json({ message: "Donation added successfully" });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
 app.post("/challenge", authenticateUser, (req, res) => {
   const { title, description, points, expiration_date } = req.body;
   knex("challenge")

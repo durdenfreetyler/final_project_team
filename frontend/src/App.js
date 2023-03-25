@@ -10,6 +10,8 @@ import Slideshow from "./components/front-page/SlideShow";
 import ChallengeList from "./components/challenge_creator/ChallengeList";
 import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
+import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckIn";
+import Donate from "./components/challenge_creator/Donate";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -47,6 +49,8 @@ function App() {
               <ChallengeList />
               <JoinChallenge />
               <AvailableChallenges />
+              <ChallengeCheckIn />
+              <Donate />
             </>
           }
         />

@@ -6,6 +6,27 @@ function ChallengeList(props) {
   const [currentChallenges, setCurrentChallenges] = useState([]);
   const [expiredChallenges, setExpiredChallenges] = useState([]);
 
+  const handleChallengeCheckIn = async (challengeId) => {
+    try {
+      await axios.put(
+        `http://localhost:3001/user_challenge/${challengeId}`,
+        { is_completed: true },
+        { withCredentials: true }
+      );
+      // Update the state of the currentChallenges array to reflect the change in is_completed status
+      setCurrentChallenges((prevChallenges) =>
+        prevChallenges.map((challenge) =>
+          challenge.id === challengeId
+            ? { ...challenge, is_completed: true }
+            : challenge
+        )
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,8 +68,12 @@ function ChallengeList(props) {
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
           <p>Expiration Date: {challenge.expiration_date}</p>
+          <button onClick={() => handleChallengeCheckIn(challenge.id)}>
+            Mark Completed
+          </button>
         </div>
       ))}
+
       <h2>Expired Challenges</h2>
       {expiredChallenges.map((challenge) => (
         <div className="card" key={challenge.id}>
