@@ -26,7 +26,7 @@
     --font-size-title: 40px;
   }
 }
-.card {
+.card-front {
   width: calc(33.33% - 20px);
   border-radius: var(--border-radius-primary);
   box-shadow: 24px 24px 80px rgba(0, 0, 0, 0.1);
@@ -38,7 +38,7 @@
   flex-direction: column;
 }
 @media (min-width: 576px) {
-  .card {
+  .card-front {
     flex-direction: row;
     align-items: center;
     margin: 40px auto;
@@ -101,7 +101,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .card {
+  .card-front {
     width: calc(50% - 20px);
   }
 }/*# sourceMappingURL=card.css.map */

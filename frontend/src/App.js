@@ -45,9 +45,9 @@ function App() {
           path="/dashboard"
           element={
             <>
-              {/* <ChallengeList /> */}
-              {/* <JoinChallenge />
-              <AvailableChallenges /> */}
+              {/* <ChallengeList />  */}
+               {/* <JoinChallenge /> */}
+              <AvailableChallenges />
             </>
           }
         />
