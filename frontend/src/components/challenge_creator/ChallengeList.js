@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ProgressCard from "../ProgressBar/ProgressCard";
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -72,6 +73,7 @@ function ChallengeList(props) {
       <h2>Current Challenges</h2>
       {currentChallenges.map((challenge) => (
         <div className="card" key={challenge.id}>
+          <h3><ProgressCard/></h3>
           <h3>{challenge.title}</h3>
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
