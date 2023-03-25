@@ -156,6 +156,38 @@ app.get("/u-uc", (req, res) => {
     });
 });
 
+app.post("/user_challenge", authenticateUser, async (req, res) => {
+  const { challengeId } = req.body;
+  const userId = req.user.id;
+
+  try {
+    // Check if the user is already in the challenge
+    const userChallenge = await knex("user_challenge")
+      .where({ user_id: userId, challenge_id: challengeId })
+      .first();
+
+    if (userChallenge) {
+      res.status(400).json({ message: "User already joined the challenge" });
+      return;
+    }
+
+    // Insert the user into the challenge
+    await knex("user_challenge").insert({
+      user_id: userId,
+      challenge_id: challengeId,
+      criteria_type: "...",
+      criteria_value: "...",
+      progress: 0,
+      is_completed: false,
+    });
+
+    res.status(201).json({ message: "User joined the challenge" });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+
 app.post("/u-uc", (req, res) => {
   const createdBy = req.body.createdBy; // assuming createdBy is a field in the POST request data
   knex

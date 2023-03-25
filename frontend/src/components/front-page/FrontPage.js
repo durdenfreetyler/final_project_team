@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 import React from 'react';
-import "../../scss/app.scss"
+import "../../scss/App.scss"
 import Leaderboard from './LeaderBoard'
 import Slideshow from './SlideShow';
 import SignupSlideshow from './SlideShow';
