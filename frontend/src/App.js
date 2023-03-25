@@ -4,12 +4,13 @@ import Cookies from "js-cookie";
 import ChallengeForm from "./components/challenge_creator/ChallengeCreator";
 import Login from "./components/Login/Login";
 import HomePage from "./components/front-page/FrontPage";
-import DashboardPage from "./components/dashboard/DashBoardPage";
 import Leaderboard from "./components/front-page/LeaderBoard";
 import Slideshow from "./components/front-page/SlideShow";
 import ChallengeList from "./components/challenge_creator/ChallengeList";
 import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
+import Card from "./components/front-page/cards";
+import ChallengeMenu from "./components/challenge_creator/Menu";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -44,16 +45,17 @@ function App() {
           path="/dashboard"
           element={
             <>
-              <ChallengeList />
-              <JoinChallenge />
-              <AvailableChallenges />
+              {/* <ChallengeList /> */}
+              {/* <JoinChallenge />
+              <AvailableChallenges /> */}
             </>
           }
         />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<ChallengeMenu />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
+        <Route path="/card" element={<Card />} />
       </Routes>
     </Router>
   );

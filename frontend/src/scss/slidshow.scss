@@ -1,1 +1,18 @@
-//empty file
+/* slider-styles.css */
+
+.awssld{
+  --slider-height-percentage: 35%;
+  --slider-transition-duration: 553ms;
+  --organic-arrow-thickness: 3px;
+  --organic-arrow-border-radius: 2px;
+  --organic-arrow-height: 21px;
+  --organic-arrow-color: #101214;
+  --control-button-width: 8%;
+  --control-button-height: 26%;
+  --control-button-background: transparent;
+  --control-bullet-color: #000000;
+  --control-bullet-active-color: #0cb4f6;
+  --loader-bar-color: #851515;
+  --loader-bar-height: 6px;
+  margin: 10px 0 39px 0;
+}
