@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../../scss/challenge.scss";
 import axios from "axios";
 
-
 function ChallengeForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
