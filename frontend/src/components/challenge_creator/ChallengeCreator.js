@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../scss/challenge.scss";
 import axios from "axios";
 
@@ -9,6 +9,12 @@ function ChallengeForm() {
   const [points, setPoints] = useState(1);
   const [expirationDate, setExpirationDate] = useState("");
   const [challenges, setChallenges] = useState([]);
+
+  useEffect(() => {
+    console.log("challenges", challenges);
+  }, [challenges]);
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -40,24 +46,24 @@ function ChallengeForm() {
       setDescription("");
       setPoints(1);
       setExpirationDate("");
+      console.log("challenges", challenges);
+      console.log("response", response)
     } catch (error) {
       console.error(error.message);
     }
   };
 
   const handleDelete = async (id) => {
-    console.log("Clicked");
-    console.log("challenges", challenges);
+    //console.log("Clicked");
+   //console.log("challenges", challenges);
     try {
-      const res = await axios({
+      await axios({
         baseURL: `http://localhost:3001/challenge`,
         url: `/${id}`,
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
-      // const res = await axios.delete(`http://localhost:3001/challenge`, {id} )
-      console.log('response', res);
       const updatedChallenges = challenges.filter(
         (challenge) => challenge.id !== id
       );
