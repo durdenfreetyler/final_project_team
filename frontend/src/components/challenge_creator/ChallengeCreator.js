@@ -13,8 +13,6 @@ function ChallengeForm() {
     console.log("challenges", challenges);
   }, [challenges]);
 
-
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const options = { month: "numeric", day: "numeric", year: "numeric" };

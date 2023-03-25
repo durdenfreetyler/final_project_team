@@ -185,16 +185,21 @@ app.get("/uc-c", (req, res) => {
 // delets last added challenge
 app.delete("/challenge/:id", (req, res) => {
   //console.log("params", req.params)
-  knex("challenge")
-    .where('challenge.id', req.params.id)
+  knex("user_challenge")
+    .where('challenge_id', req.params.id)
     .del()
     .then(() => {
-      knex
+      knex("challenge")
+        .where('challenge.id', req.params.id)
+        .del()
+        .then(() => {
+         knex
         .select()
         .from("challenge")
         .then((result) => {
           res.send(result);
         }); 
+      });  
     });
 });
 
