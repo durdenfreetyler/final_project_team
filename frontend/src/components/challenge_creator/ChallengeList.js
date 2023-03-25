@@ -5,7 +5,7 @@ function ChallengeList(props) {
   const { userId } = props;
   const [currentChallenges, setCurrentChallenges] = useState([]);
   const [expiredChallenges, setExpiredChallenges] = useState([]);
-  //const [challenges, setChallenges] = useState([]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +19,7 @@ function ChallengeList(props) {
         const expired = [];
         const active = [];
         challenges.forEach((challenge) => {
-          console.log("challenge", challenge);
+          //console.log("challenge", challenge);
           if (
             currentDate >=
             new Date(challenge.expiration_date.toString()).getTime()
