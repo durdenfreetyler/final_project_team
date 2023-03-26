@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cookies from "js-cookie"
+//import Cookies from "js-cookie"
 import ChallengeForm from "./components/challenge_creator/ChallengeCreator";
 import Login from "./components/Login/Login";
 import HomePage from "./components/front-page/FrontPage";
@@ -12,7 +12,7 @@ import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  /*const [users, setUsers] = useState([]);
   const [challenge, setChallenge] = useState([])
   const [user_challenge, setUser_Challenge] = useState([])
   const [userId, setUserId] = useState(Cookies.get("userId"));
@@ -35,7 +35,7 @@ function App() {
       .then((res) => res.json())
       .then((user_challenge) => setUser_Challenge(user_challenge));
   }, []);
-
+*/
 
   return (
     <Router>
