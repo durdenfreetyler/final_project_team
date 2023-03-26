@@ -11,6 +11,8 @@ import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
 import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
+import Dashboard from "./components/DashBoard/DashBoard";
+import ChallengeArticles from "./components/front-page/grid";
 
 function App() {
   /*const [users, setUsers] = useState([]);
@@ -42,19 +44,20 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={
-        <>
-       {/* <ChallengeForm /> */}
-        <ChallengeList />
-        <JoinChallenge />
-        <AvailableChallenges />
-        
-
-        </>
-        } />
+        <Route
+          path="/dashboard"
+          element={
+            <>
+              <ChallengeList /> 
+               <JoinChallenge />
+              <AvailableChallenges />
+            </>
+          }
+        />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/Account" element={<Dashboard />} />
+        <Route path="/login" element={<ChallengeArticles />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
         <Route path="/card" element={<Card />} />
       </Routes>
