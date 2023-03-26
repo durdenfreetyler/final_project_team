@@ -7,6 +7,7 @@ import Leaderboard from './LeaderBoard'
 import Slideshow from './SlideShow';
 import SignupSlideshow from './SlideShow';
 import { Helmet } from 'react-helmet';
+import EnticeSignup from './enticelogin';
 
 
 
@@ -44,7 +45,6 @@ function HomePage() {
             <i class="fab fa-codepen"></i>
           </a>
         </div>
-
       </div>
       <a href="/login" id="cart-icon" class="signup-btn">LOGIN<div id="cart-icon">
         <i class="fa-solid fa-bag-shopping fa-lg"></i>
@@ -107,6 +107,7 @@ function HomePage() {
  </div>
   </div>
   <Slideshow></Slideshow>
+  
     </div>
     <footer>
       <div class="footer-container">

@@ -11,6 +11,7 @@ import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
 import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
+import Dashboard from "./components/DashBoard/DashBoard";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -45,15 +46,16 @@ function App() {
           path="/dashboard"
           element={
             <>
-              {/* <ChallengeList />  */}
-               {/* <JoinChallenge /> */}
+              <ChallengeList /> 
+               <JoinChallenge />
               <AvailableChallenges />
             </>
           }
         />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
-        <Route path="/login" element={<ChallengeMenu />} />
+        <Route path="/Account" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
         <Route path="/card" element={<Card />} />
       </Routes>
