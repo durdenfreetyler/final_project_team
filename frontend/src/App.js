@@ -12,6 +12,7 @@ import AvailableChallenges from "./components/challenge_creator/AvailableChallen
 import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
 import Dashboard from "./components/DashBoard/DashBoard";
+import ChallengeArticles from "./components/front-page/grid";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -55,7 +56,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
         <Route path="/Account" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<ChallengeArticles />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
         <Route path="/card" element={<Card />} />
       </Routes>

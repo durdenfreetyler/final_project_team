@@ -8,6 +8,7 @@ import Slideshow from './SlideShow';
 import SignupSlideshow from './SlideShow';
 import { Helmet } from 'react-helmet';
 import EnticeSignup from './enticelogin';
+import ChallengeArticles from './grid';
 
 
 
@@ -55,29 +56,9 @@ function HomePage() {
 <h3></h3>
 	<br></br>
 		</div>
-    {/* <Leader_Button></Leader_Button> */}
       </header>
-      
-      <div className="images">
-        <div className="images-row">
-          <div className="col-md-4">
-            <img src="https://via.placeholder.com/250x100" alt="Placeholder" className="img-fluid" />
-          </div>
-          <div className="col-md-4">
-            <img src="https://via.placeholder.com/250x100" alt="Placeholder" className="img-fluid" />
-          </div>
-          <div className="col-md-4">
-            <img src="https://via.placeholder.com/250x100" alt="Placeholder" className="img-fluid" />
-          </div>
-          <div className="col-md-4">
-            <img src="https://via.placeholder.com/250x100" alt="Placeholder" className="img-fluid" />
-          </div>
-          <div className="col-md-4">
-            <img src="https://via.placeholder.com/250x100" alt="Placeholder" className="img-fluid" />
-          </div>
-        </div>
-        </div>
         <Card></Card>
+        <ChallengeArticles></ChallengeArticles>
         <div class="grid">
         <div class="challenge-grid">
         <Background></Background>
@@ -106,9 +87,10 @@ function HomePage() {
     <p class="challenge-description">Improve your flexibility and mindfulness by practicing yoga for 30 days straight.</p>
  </div>
   </div>
-  <Slideshow></Slideshow>
+  
   
     </div>
+    <Slideshow></Slideshow>
     <footer>
       <div class="footer-container">
         <div class="footer-logo">
