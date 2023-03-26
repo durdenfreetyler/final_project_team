@@ -9,6 +9,8 @@ import Slideshow from "./components/front-page/SlideShow";
 import ChallengeList from "./components/challenge_creator/ChallengeList";
 import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
+import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckIn";
+import Donate from "./components/challenge_creator/Donate";
 import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
 import Dashboard from "./components/DashBoard/DashBoard";
@@ -50,6 +52,8 @@ function App() {
               <ChallengeList /> 
                <JoinChallenge />
               <AvailableChallenges />
+              <ChallengeCheckIn />
+              <Donate />
             </>
           }
         />
