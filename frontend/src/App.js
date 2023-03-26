@@ -44,15 +44,19 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={
         <>
+       {/* <ChallengeForm /> */}
         <ChallengeList />
         <JoinChallenge />
         <AvailableChallenges />
+        
+
         </>
         } />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
         <Route path="/login" element={<Login />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
+        <Route path="/card" element={<Card />} />
       </Routes>
     </Router>
   );
