@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 2.5rem;
+  margin: 2rem 0;
+}
+form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+form label input, form label textarea, form label select {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+form label input:focus, form label textarea:focus, form label select:focus {
+  outline: none;
+  border-color: #0077ff;
+}
+form button {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #0077ff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #005eff;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.card p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+.card button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.card button:hover {
+  background-color: #d70000;
+}/*# sourceMappingURL=challenge.css.map */

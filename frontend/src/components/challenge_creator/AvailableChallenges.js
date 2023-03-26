@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../../scss/dashboard.scss"
 
 function AvailableChallenges() {
   const [challenges, setChallenges] = useState([]);
@@ -38,18 +39,20 @@ function AvailableChallenges() {
   }, []);
 
   return (
-    <div>
+    <div className="challenges-box">
+    <div className="challenges-grid">
       {challenges.map((challenge) => (
-        <div key={challenge.id}>
+        <div className="challenge" key={challenge.id}>
           <h3>{challenge.title}</h3>
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
-          <button onClick={() => joinChallenge(challenge.id)}>
+          <button className="button" onClick={() => joinChallenge(challenge.id)}>
             Join Challenge
           </button>
         </div>
       ))}
     </div>
+  </div>
   );
 }
 
