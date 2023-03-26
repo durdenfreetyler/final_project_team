@@ -13,6 +13,8 @@ import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
 import Dashboard from "./components/DashBoard/DashBoard";
 import ChallengeArticles from "./components/front-page/grid";
+import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckIn";
+import Donate from "./components/challenge_creator/Donate";
 
 function App() {
   /*const [users, setUsers] = useState([]);
@@ -51,6 +53,8 @@ function App() {
               <ChallengeList /> 
                <JoinChallenge />
               <AvailableChallenges />
+              <ChallengeCheckIn />
+              <Donate />
             </>
           }
         />
