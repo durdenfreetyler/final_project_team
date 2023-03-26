@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function AvailableChallenges() {
+function AvailableChallenges(props) {
   const [challenges, setChallenges] = useState([]);
+  const { setCurrentChallenges } = props;
 
   const joinChallenge = async (challengeId) => {
     try {
@@ -14,6 +15,12 @@ function AvailableChallenges() {
         { withCredentials: true }
       );
       console.log(response.data);
+
+      // Add the newly joined challenge to the currentChallenges state array
+      setCurrentChallenges((prevChallenges) => [
+        ...prevChallenges,
+        challenges.find((challenge) => challenge.id === challengeId),
+      ]);
     } catch (error) {
       console.error(error);
     }

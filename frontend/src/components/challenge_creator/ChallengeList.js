@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { JoinChallenge } from "./JoinChallenge";
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -14,7 +15,6 @@ function ChallengeList(props) {
         { withCredentials: true }
       );
       const updatedChallenge = response.data.data;
-
       // Remove the updated challenge from the currentChallenges array
       setCurrentChallenges((prevChallenges) =>
         prevChallenges.filter((challenge) => challenge.id !== challengeId)
@@ -37,43 +37,37 @@ function ChallengeList(props) {
     }
   };
 
+  const handleJoinChallenge = (newChallenge) => {
+    setCurrentChallenges((prevChallenges) => [...prevChallenges, newChallenge]);
+  };
+
+  const fetchUserChallenges = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3001/user_challenge`, {
+        withCredentials: true,
+      });
+      const challenges = response.data;
+      const currentDate = new Date().getTime();
+      const expired = challenges.filter(
+        (challenge) =>
+          currentDate >=
+          new Date(challenge.expiration_date.toString()).getTime()
+      );
+      const active = challenges.filter(
+        (challenge) =>
+          currentDate < new Date(challenge.expiration_date.toString()).getTime()
+      );
+      setCurrentChallenges(active);
+      setExpiredChallenges(expired);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:3001/user_challenge`,
-          { withCredentials: true }
-        );
-        const challenges = response.data;
-        const currentDate = new Date().getTime();
-        const expired = challenges.filter(
-          (challenge) =>
-            currentDate >=
-            new Date(challenge.expiration_date.toString()).getTime()
-        );
-        for (const challenge of expired) {
-          const userChallenge = await axios.get(
-            `http://localhost:3001/user_challenge?user_id=${userId}&challenge_id=${challenge.id}`,
-            { withCredentials: true }
-          );
-          challenge.completed_before_expiration =
-            userChallenge.data[0].completed_before_expiration; // updated
-        }
-        const active = challenges.filter(
-          (challenge) =>
-            currentDate <
-            new Date(challenge.expiration_date.toString()).getTime()
-        );
-        setCurrentChallenges(active);
-        setExpiredChallenges(expired);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-    fetchData();
-  }, [userId]);
-  // console.log(expiredChallenges);
-  // console.log(currentChallenges);
+    fetchUserChallenges();
+  }, []);
+
   return (
     <div>
       <h2>Current Challenges</h2>

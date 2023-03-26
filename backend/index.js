@@ -215,14 +215,14 @@ app.get("/u-uc", (req, res) => {
 });
 
 app.post("/user_challenge", authenticateUser, async (req, res) => {
-  const { challengeId } = req.body;
+  const { challenge_id } = req.body;
   const userId = req.user.id;
   console.log("req", req.body);
   console.log("res", res);
   try {
     // Check if the user is already in the challenge
     const userChallenge = await knex("user_challenge")
-      .where({ user_id: userId, challenge_id: challengeId })
+      .where({ user_id: userId, challenge_id: challenge_id })
       .first();
 
     if (userChallenge) {
@@ -233,7 +233,7 @@ app.post("/user_challenge", authenticateUser, async (req, res) => {
     // Insert the user into the challenge
     await knex("user_challenge").insert({
       user_id: userId,
-      challenge_id: challengeId,
+      challenge_id: challenge_id,
       criteria_type: "...",
       criteria_value: "...",
       progress: 0,
