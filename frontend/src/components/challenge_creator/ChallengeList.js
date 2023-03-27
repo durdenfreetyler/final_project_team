@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { JoinChallenge } from "./JoinChallenge";
+// import { JoinChallenge } from "./JoinChallenge";
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -11,10 +11,10 @@ function ChallengeList(props) {
     try {
       const response = await axios.put(
         `http://localhost:3001/user_challenge/${challengeId}`,
-        { is_completed: true },
+        { is_completed: true, completed_before_expiration: true },
         { withCredentials: true }
       );
-      const updatedChallenge = response.data.data;
+      const updatedChallenge = response.data;
       // Remove the updated challenge from the currentChallenges array
       setCurrentChallenges((prevChallenges) =>
         prevChallenges.filter((challenge) => challenge.id !== challengeId)
@@ -23,12 +23,13 @@ function ChallengeList(props) {
       // Add the updated challenge to the expiredChallenges array
       setExpiredChallenges((prevChallenges) => [
         ...prevChallenges,
-        {
-          ...currentChallenges.find(
-            (challenge) => challenge.id === challengeId
-          ),
-          is_completed: true,
-        },
+        updatedChallenge,
+        // {
+        //   ...currentChallenges.find(
+        //     (challenge) => challenge.id === challengeId
+        //   ),
+        //   is_completed: true,
+        // },
       ]);
 
       console.log("response", response);
@@ -36,10 +37,11 @@ function ChallengeList(props) {
       console.error(error.message);
     }
   };
+  console.log("expiredChallenges", expiredChallenges);
 
-  const handleJoinChallenge = (newChallenge) => {
-    setCurrentChallenges((prevChallenges) => [...prevChallenges, newChallenge]);
-  };
+  // const handleJoinChallenge = (newChallenge) => {
+  //   setCurrentChallenges((prevChallenges) => [...prevChallenges, newChallenge]);
+  // };
 
   const fetchUserChallenges = async () => {
     try {
@@ -92,7 +94,7 @@ function ChallengeList(props) {
           <p>Expiration Date: {challenge.expiration_date}</p>
           {challenge.completed_before_expiration ? (
             <p>
-              Player completed challenge before expiration and did not to
+              Player completed challenge before expiration and did not donate to
               charity
             </p>
           ) : (

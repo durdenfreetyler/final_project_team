@@ -42,14 +42,40 @@ app.put("/user_challenge/:id", authenticateUser, async (req, res) => {
       return;
     }
 
-    const updatedChallenge = await knex("user_challenge")
+    await knex("user_challenge")
       .where({ id: req.params.id, user_id: userId })
-      .update({ is_completed })
-      .returning("*");
-    console.log("updatedChallenge", updatedChallenge);
-    res
-      .status(200)
-      .json({ message: "User challenge updated", data: updatedChallenge[0] });
+      .update({
+        is_completed: true,
+        completed_before_expiration: true,
+      });
+    await knex
+      .select(
+        "user_challenge.id",
+        "user_challenge.user_id",
+        "user_challenge.challenge_id",
+        "user_challenge.completed_before_expiration",
+        "challenge.title",
+        "challenge.description",
+        "challenge.points",
+        "user_challenge.criteria_type",
+        "user_challenge.criteria_value",
+        "user_challenge.progress",
+        "challenge.expiration_date"
+        // "user_challenge.completed_date"
+      )
+      .from("user_challenge")
+      .join("challenge", "user_challenge.challenge_id", "=", "challenge.id")
+      .where("user_challenge.user_id", userId)
+      .andWhere("user_challenge.id", req.params.id)
+      .then((result) => {
+        console.log("result", result);
+        res.json(result[0]);
+      });
+    //   .returning("*");
+    // console.log("updatedChallenge", updatedChallenge);
+    // res
+    //   .status(200)
+    //   .json({ message: "User challenge updated", data: updatedChallenge[0] });
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
@@ -69,6 +95,36 @@ app.get("/users", (req, res) => {
       res.json(result);
     });
 });
+
+//  .select(
+//         "user_challenge.id",
+//         "user_challenge.user_id",
+//         "user_challenge.challenge_id",
+//         "user_challenge.completed_before_expiration",
+//         "challenge.title",
+//         "challenge.description",
+//         "challenge.points",
+//         "user_challenge.criteria_type",
+//         "user_challenge.criteria_value",
+//         "user_challenge.progress",
+//         "challenge.expiration_date"
+//         // "user_challenge.completed_date"
+//       )
+//       .from("user_challenge")
+//       .join("challenge", "user_challenge.challenge_id", "=", "challenge.id")
+//       .where("user_challenge.user_id", userId)
+//       .andWhere("user_challenge.id", req.params.id)
+
+//       // .where({ id: req.params.id, user_id: userId })
+//       .returning("*")
+//       .update({ is_completed: true, completed_before_expiration: true })
+//       .then((result) => {
+//         console.log("result", result);
+//         res.status(200).json({
+//           message: "User challenge updated",
+//           data: result.data,
+//         });
+//       })
 
 // app.post("/donations", authenticateUser, async (req, res) => {
 //   const { user_challenge_id, charity_id, amount } = req.body;
@@ -217,8 +273,8 @@ app.get("/u-uc", (req, res) => {
 app.post("/user_challenge", authenticateUser, async (req, res) => {
   const { challenge_id } = req.body;
   const userId = req.user.id;
-  console.log("req", req.body);
-  console.log("res", res);
+  // console.log("req", req.body);
+  // console.log("res", res);
   try {
     // Check if the user is already in the challenge
     const userChallenge = await knex("user_challenge")
@@ -278,21 +334,21 @@ app.get("/uc-c", (req, res) => {
 app.delete("/challenge/:id", (req, res) => {
   //console.log("params", req.params)
   knex("user_challenge")
-    .where('challenge_id', req.params.id)
+    .where("challenge_id", req.params.id)
     .del()
     .then(() => {
       knex("challenge")
-        .where('challenge.id', req.params.id)
+        .where("challenge.id", req.params.id)
         .del()
         .then(() => {
-         knex
-        .select()
-        .from("challenge")
-        .then((result) => {
-          //console.log('result', result)
-          res.send(result);
-        }); 
-      });  
+          knex
+            .select()
+            .from("challenge")
+            .then((result) => {
+              //console.log('result', result)
+              res.send(result);
+            });
+        });
     });
 });
 
@@ -354,9 +410,6 @@ app.delete("/challenge/:id", (req, res) => {
 //   }
 // });
 
-
-
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
-

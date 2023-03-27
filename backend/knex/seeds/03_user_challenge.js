@@ -157,7 +157,7 @@ exports.seed = async function (knex) {
       criteria_value: "1",
       progress: 0,
       is_completed: false,
-      completed_before_expiration: true,
+      completed_before_expiration: false,
     },
     {
       user_id: 1,

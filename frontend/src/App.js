@@ -49,17 +49,18 @@ function App() {
           path="/dashboard"
           element={
             <>
-              <ChallengeList /> 
-              <JoinChallenge />
               <AvailableChallenges />
-              {/*<ChallengeCheckIn />*/}
-              {/*<Donate />*/}
+              <ChallengeList /> 
+              {/* <ChallengeForm/> */}
+              {/* <JoinChallenge />  */}
+              {/* <ChallengeCheckIn />
+              <Donate />  */}
             </>
           }
         />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
-        <Route path="/Account" element={<Dashboard/>} />
+        <Route path="/Account" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
         <Route path="/card" element={<Card />} />
