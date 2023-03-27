@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-<<<<<<< HEAD
 import ProgressCard from "../ProgressBar/ProgressCard";
 import { JoinChallenge } from "./JoinChallenge";
-=======
+
 // import { JoinChallenge } from "./JoinChallenge";
 
 
@@ -46,7 +45,7 @@ function ChallengeList(props) {
   };
   console.log("expiredChallenges", expiredChallenges);
 
-<<<<<<< HEAD
+
   /*
   const handleJoinChallenge = (newChallenge) => {
     setCurrentChallenges((prevChallenges) => [...prevChallenges, newChallenge]);
