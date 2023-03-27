@@ -50,10 +50,10 @@ function App() {
           element={
             <>
               <ChallengeList /> 
-              <JoinChallenge />
-              <AvailableChallenges />
               <ChallengeCheckIn />
               <Donate />
+              <AvailableChallenges />
+              <JoinChallenge />
             </>
           }
         />
