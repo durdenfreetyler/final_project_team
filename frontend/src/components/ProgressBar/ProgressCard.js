@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Line } from 'rc-progress'
 import { ProgressInput } from './ProgressInput'
 import { Button } from './Button'
+import AddButton from '../Buttons/Add-Button'
 
 
 const ProgressCard = () => {
@@ -40,7 +41,7 @@ const ProgressCard = () => {
                   placeholder='Add Progress'
 
                  />
-                 <Button type='submit' click='Add'/> 
+                 <AddButton onClick={addProgressBar} type='button' click='Add'/> 
                  <Button type='button' onClick={clearBar} click='Clear'/> 
                 </form>
           </div>

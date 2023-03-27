@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import '../../scss/challenge.scss'
 import ProgressCard from "../ProgressBar/ProgressCard";
+import Card from "../front-page/cards";
 
 function ChallengeList(props) {
   const { userId } = props;
   const [currentChallenges, setCurrentChallenges] = useState([]);
   const [expiredChallenges, setExpiredChallenges] = useState([]);
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +24,6 @@ function ChallengeList(props) {
         const expired = [];
         const active = [];
         challenges.forEach((challenge) => {
-          //console.log("challenge", challenge);
           if (
             currentDate >=
             new Date(challenge.expiration_date.toString()).getTime()
@@ -38,13 +41,8 @@ function ChallengeList(props) {
     };
     fetchData();
   }, [userId]);
-  //console.log(expiredChallenges);
-  //console.log(currentChallenges);
-
 
   const handleDelete = async (id) => {
-    //console.log("Clicked");
-   //console.log("challenges", challenges);
     try {
       await axios({
         baseURL: `http://localhost:3001/challenge`,
@@ -64,33 +62,55 @@ function ChallengeList(props) {
     } catch (error) {
       console.error(error);
     }
-    
+  };
+  
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    style: {
+      margin: "0 auto",
+      width: "35%",
+    },
   };
 
-
   return (
+   
     <div>
       <h2>Current Challenges</h2>
-      {currentChallenges.map((challenge) => (
-        <div className="card" key={challenge.id}>
-          <h3><ProgressCard/></h3>
-          <h3>{challenge.title}</h3>
-          <p>{challenge.description}</p>
-          <p>Points: {challenge.points}</p>
-          <p>Expiration Date: {challenge.expiration_date}</p>
-          <button onClick={() => handleDelete(challenge.id)}>Delete</button>
-        </div>
-      ))}
+      {currentChallenges.length > 0 && (
+        <Slider {...settings}>
+          {currentChallenges.map((challenge) => (
+            <div className="challenge-card" key={challenge.id}>
+              <h3>
+                <ProgressCard />
+              </h3>
+              <h3>{challenge.title}</h3>
+              <p>{challenge.description}</p>
+              <p>Points: {challenge.points}</p>
+              <p>Expiration Date: {challenge.expiration_date}</p>
+              <button onClick={() => handleDelete(challenge.id)}>Delete</button>
+            </div>
+          ))}
+        </Slider>
+      )}
       <h2>Expired Challenges</h2>
-      {expiredChallenges.map((challenge) => (
-        <div className="card" key={challenge.id}>
-          <h3>{challenge.title}</h3>
-          <p>{challenge.description}</p>
-          <p>Points: {challenge.points}</p>
-          <p>Expiration Date: {challenge.expiration_date}</p>
-          <button onClick={() => handleDelete(challenge.id)}>Delete</button>
-        </div>
-      ))}
+      {expiredChallenges.length > 0 && (
+        <Slider {...settings}>
+          {expiredChallenges.map((challenge) => (
+            <div className="challenge-card" key={challenge.id}>
+              <h3>{challenge.title}</h3>
+              <p>{challenge.description}</p>
+              <p>Points: {challenge.points}</p>
+              <p>Expiration Date: {challenge.expiration_date}</p>
+              <button onClick={() => handleDelete(challenge.id)}>Delete</button>
+            </div>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 }
