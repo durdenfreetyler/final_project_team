@@ -17,10 +17,9 @@ function AvailableChallenges(props) {
       );
       console.log(response.data);
 
-      // Add the newly joined challenge to the currentChallenges state array
+      //Add the newly joined challenge to the currentChallenges state array
       setCurrentChallenges((prevChallenges) => [
-        ...prevChallenges,
-        challenges.find((challenge) => challenge.id === challengeId),
+        response.data.challenge, ...prevChallenges,
       ]);
     } catch (error) {
       console.error(error);

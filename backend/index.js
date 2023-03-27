@@ -217,8 +217,8 @@ app.get("/u-uc", (req, res) => {
 app.post("/user_challenge", authenticateUser, async (req, res) => {
   const { challenge_id } = req.body;
   const userId = req.user.id;
-  console.log("req", req.body);
-  console.log("res", res);
+  //console.log("req", req.body);
+  //console.log("res", res);
   try {
     // Check if the user is already in the challenge
     const userChallenge = await knex("user_challenge")
@@ -231,7 +231,7 @@ app.post("/user_challenge", authenticateUser, async (req, res) => {
     }
 
     // Insert the user into the challenge
-    await knex("user_challenge").insert({
+    const challenge = await knex("user_challenge").insert({
       user_id: userId,
       challenge_id: challenge_id,
       criteria_type: "...",
@@ -239,9 +239,12 @@ app.post("/user_challenge", authenticateUser, async (req, res) => {
       progress: 0,
       is_completed: false,
       completed_before_expiration: false,
-    });
+    }).returning("*");
+    //console.log('challenge', challenge)
 
-    res.status(201).json({ message: "User joined the challenge" });
+    
+    res.status(201).json({ message: "User joined the challenge", challenge: challenge[0] });
+    
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
