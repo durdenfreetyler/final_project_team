@@ -69,6 +69,7 @@ function App() {
 }
 
 export default App;
+// todos   <ChallengeList /> <ChallengeCheckIn /> <AvailableChallenges /> find data functions for state and bring states and possibly brining them into app.js/ use context. Needs general state common functions 
 
 // <ChallengeList key={userId} userId={userId} challenge={challenge} />
 
