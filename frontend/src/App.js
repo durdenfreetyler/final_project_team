@@ -10,11 +10,16 @@ import ChallengeList from "./components/challenge_creator/ChallengeList";
 import Donate from "./components/challenge_creator/Donate";
 import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
+<<<<<<< HEAD
 import ChallengeArticles from "./components/front-page/grid";
 import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckIn";
 import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
 import Dashboard from "./components/DashBoard/DashBoard";
+=======
+import Dashboard from "./components/DashBoard/DashBoard";
+import ChallengeArticles from "./components/front-page/challenge_info";
+>>>>>>> a7014f509ce638189d347b8fe35967dfb585b9a9
 
 function App() {
   // const [users, setUsers] = useState([]);
@@ -49,9 +54,13 @@ function App() {
           path="/dashboard"
           element={
             <>
+<<<<<<< HEAD
             
               <ChallengeCheckIn />
         
+=======
+              {/* <ChallengeList />  */}
+>>>>>>> a7014f509ce638189d347b8fe35967dfb585b9a9
               <AvailableChallenges />
               <ChallengeList /> 
               {/* <ChallengeForm/> */}

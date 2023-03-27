@@ -42,7 +42,7 @@ form button:hover {
   background-color: #005eff;
 }
 
-.card {
+.challenge-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,17 +51,17 @@ form button:hover {
   border-radius: 1.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.card h2 {
+.challenge-card h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
-.card p {
+.challenge-card p {
   font-size: 1rem;
   margin: 0.5rem 0;
   text-align: center;
 }
-.card button {
+.challenge-card button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -70,6 +70,35 @@ form button:hover {
   font-size: 1rem;
   cursor: pointer;
 }
-.card button:hover {
+.challenge-card button:hover {
   background-color: #d70000;
+}
+
+.challenge-card {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 35%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.challenge-card h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.challenge-card p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-card button:hover {
+  background-color: #0061a9;
+}
+
+.lols {
+  display: flex;
+  left: 0;
 }/*# sourceMappingURL=challenge.css.map */

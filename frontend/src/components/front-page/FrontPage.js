@@ -1,14 +1,15 @@
-import { Button } from "antd";
-import React from "react";
-import "../../scss/App.scss";
-import Background from "./background";
-import Card from "./cards";
-import Leaderboard from "./LeaderBoard";
-import Slideshow from "./SlideShow";
-import SignupSlideshow from "./SlideShow";
-import { Helmet } from "react-helmet";
-import ChallengeArticles from "./grid";
-// import EnticeSignup from "../dashboard/enticelogin";
+import { Button } from 'antd';
+import React from 'react';
+import "../../scss/app.scss"
+import Background from './background';
+import Card from './cards';
+import Leaderboard from './LeaderBoard'
+import Slideshow from './SlideShow';
+import SignupSlideshow from './SlideShow';
+import { Helmet } from 'react-helmet';
+import EnticeSignup from './enticelogin';
+import ChallengeArticles from './grid';
+
 
 //import Leader_Button from './LeaderBoard_Button'
 
@@ -80,79 +81,53 @@ function HomePage() {
           <br></br>
         </div>
       </header>
-      <Card></Card>
-      <ChallengeArticles></ChallengeArticles>
-      <div className="grid">
-        <div className="challenge-grid">
-          <Background></Background>
-          <div className="challenge">
-            <h2 className="challenge-title">30-Day Plank Challenge</h2>
-            <p className="challenge-description">
-              Build core strength and endurance by holding a plank for longer
-              periods of time over 30 days.
-            </p>
-          </div>
-          <div className="challenge">
-            <h2 className="challenge-title">No-Sugar Challenge</h2>
-            <p className="challenge-description">
-              Cut out all added sugars from your diet for 30 days to improve
-              your health and reduce cravings.
-            </p>
-          </div>
-          <div className="challenge">
-            <h2 className="challenge-title">100 Pushup Challenge</h2>
-            <p className="challenge-description">
-              Increase your upper body strength and endurance by working up to
-              100 pushups over 30 days.
-            </p>
-          </div>
-          <div className="challenge">
-            <h2 className="challenge-title">Meditation Challenge</h2>
-            <p className="challenge-description">
-              Develop a daily meditation practice over 30 days to reduce stress
-              and improve mental clarity.
-            </p>
-          </div>
-          <div classNameName="challenge">
-            <h2 className="challenge-title">10,000 Steps Challenge</h2>
-            <p className="challenge-description">
-              Get more active by aiming to walk 10,000 steps per day for 30
-              days.
-            </p>
-          </div>
-          <div className="challenge">
-            <h2 className="challenge-title">30-Day Yoga Challenge</h2>
-            <p className="challenge-description">
-              Improve your flexibility and mindfulness by practicing yoga for 30
-              days straight.
-            </p>
-          </div>
+        <Card></Card>
+        <ChallengeArticles></ChallengeArticles>
+        <div class="grid">
+        <div class="challenge-grid">
+        <Background></Background>
+  <div class="challenge">
+    <h2 class="challenge-title">30-Day Plank Challenge</h2>
+    <p class="challenge-description">Build core strength and endurance by holding a plank for longer periods of time over 30 days.</p>
+  </div>
+  <div class="challenge">
+    <h2 class="challenge-title">No-Sugar Challenge</h2>
+    <p class="challenge-description">Cut out all added sugars from your diet for 30 days to improve your health and reduce cravings.</p>
+  </div>
+  <div class="challenge">
+    <h2 class="challenge-title">100 Pushup Challenge</h2>
+    <p class="challenge-description">Increase your upper body strength and endurance by working up to 100 pushups over 30 days.</p>
+  </div>
+  <div class="challenge">
+    <h2 class="challenge-title">Meditation Challenge</h2>
+    <p class="challenge-description">Develop a daily meditation practice over 30 days to reduce stress and improve mental clarity.</p>
+  </div>
+  <div class="challenge">
+    <h2 class="challenge-title">10,000 Steps Challenge</h2>
+    <p class="challenge-description">Get more active by aiming to walk 10,000 steps per day for 30 days.</p>
+  </div>
+  <div class="challenge">
+    <h2 class="challenge-title">30-Day Yoga Challenge</h2>
+    <p class="challenge-description">Improve your flexibility and mindfulness by practicing yoga for 30 days straight.</p>
+ </div>
+  </div>
+  
+  
+    </div>
+    <Slideshow></Slideshow>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="https://i.pinimg.com/564x/db/63/df/db63dfb015cec41306deee05c762d2a0.jpg" alt="Logo"></img>
+          <h3>Wok & Roll</h3>
         </div>
-      </div>
-      <Slideshow></Slideshow>
-      <footer>
-        <div className="footer-container">
-          <div className="footer-logo">
-            <img
-              src="https://i.pinimg.com/564x/db/63/df/db63dfb015cec41306deee05c762d2a0.jpg"
-              alt="Logo"
-            ></img>
-            <h3>Wok & Roll</h3>
-          </div>
-
-          <div className="footer-social">
-            <h3>Follow us on social media</h3>
-            <div className="social-icons">
-              <a href="https://www.facebook.com/profile.php?id=100089970687570">
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="https://www.instagram.com/wok_and_roll98/">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
+        
+        <div class="footer-social">
+          <h3>Follow us on social media</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100089970687570"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/wok_and_roll98/"><i class="fab fa-instagram"></i></a>
           </div>
 
           <div className="footer-nav">
@@ -186,9 +161,11 @@ function HomePage() {
         <div className="footer-bottom">
           <p>&copy; 2023 Challenge Champions. All rights reserved.</p>
         </div>
+        
+      
       </footer>
     </div>
   );
-}
+)}
 
 export default HomePage;

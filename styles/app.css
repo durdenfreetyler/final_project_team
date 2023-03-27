@@ -313,22 +313,6 @@ header h3, p {
   display: flex;
 }
 
-.button {
-  border: none;
-  outline: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  color: #333;
-  background: #fff;
-  margin-bottom: 50px;
-  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.231372549);
-  margin-right: 100px;
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
 .social-list {
   list-style: none;
   margin: 0;

@@ -19,6 +19,7 @@ export default function Slideshow() {
       <div data-src="https://www.podiumrunner.com/wp-content/uploads/2014/12/HardisGreat.jpg?width=728" />
       <div data-src="https://www.podiumrunner.com/wp-content/uploads/2014/12/Masterpiece.jpg?width=728" />
       <div data-src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_501912142_152591.jpg" />
+
     </AutoplaySlider>
   );
 }
