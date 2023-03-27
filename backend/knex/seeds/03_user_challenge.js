@@ -1,11 +1,11 @@
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
-exports.seed = async function(knex) {
+exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('user_challenge').del()
-  await knex('user_challenge').insert([
+  await knex("user_challenge").del();
+  await knex("user_challenge").insert([
     {
       user_id: 1,
       challenge_id: 7,
@@ -13,30 +13,34 @@ exports.seed = async function(knex) {
       criteria_value: "5",
       progress: 2,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
-      user_id: 3,
+      user_id: 1,
       challenge_id: 9,
       criteria_type: "repetitions",
       criteria_value: "50",
       progress: 30,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
-      user_id: 5,
+      user_id: 1,
       challenge_id: 14,
       criteria_type: "distance",
       criteria_value: "10",
       progress: 5,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
-      user_id: 6,
+      user_id: 1,
       challenge_id: 19,
       criteria_type: "time",
       criteria_value: "15",
       progress: 10,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 7,
@@ -44,7 +48,8 @@ exports.seed = async function(knex) {
       criteria_type: "distance",
       criteria_value: "2",
       progress: 1,
-      is_completed: false,
+      is_completed: true,
+      completed_before_expiration: false,
     },
     {
       user_id: 8,
@@ -53,6 +58,7 @@ exports.seed = async function(knex) {
       criteria_value: "100",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 9,
@@ -61,6 +67,7 @@ exports.seed = async function(knex) {
       criteria_value: "3",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 10,
@@ -69,6 +76,7 @@ exports.seed = async function(knex) {
       criteria_value: "15000",
       progress: 5000,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 2,
@@ -77,6 +85,7 @@ exports.seed = async function(knex) {
       criteria_value: "60",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 4,
@@ -85,6 +94,7 @@ exports.seed = async function(knex) {
       criteria_value: "5",
       progress: 2,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 3,
@@ -93,6 +103,7 @@ exports.seed = async function(knex) {
       criteria_value: "3",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 4,
@@ -101,6 +112,7 @@ exports.seed = async function(knex) {
       criteria_value: "50",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 5,
@@ -109,6 +121,7 @@ exports.seed = async function(knex) {
       criteria_value: "2",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 6,
@@ -117,6 +130,7 @@ exports.seed = async function(knex) {
       criteria_value: "30",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 7,
@@ -125,6 +139,7 @@ exports.seed = async function(knex) {
       criteria_value: "10",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 8,
@@ -133,6 +148,7 @@ exports.seed = async function(knex) {
       criteria_value: "1",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
     {
       user_id: 9,
@@ -141,6 +157,7 @@ exports.seed = async function(knex) {
       criteria_value: "1",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: true,
     },
     {
       user_id: 1,
@@ -149,14 +166,16 @@ exports.seed = async function(knex) {
       criteria_value: "50",
       progress: 0,
       is_completed: false,
+      completed_before_expiration: false,
     },
-       {
+    {
       user_id: 2,
       challenge_id: 20,
       criteria_type: "time",
       criteria_value: "1",
       progress: 0,
       is_completed: false,
-    }
+      completed_before_expiration: false,
+    },
   ]);
 };

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { JoinChallenge } from "./JoinChallenge";
+import ProgressCard from "../ProgressBar/ProgressCard";
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -43,12 +45,14 @@ function ChallengeList(props) {
       <h2>Current Challenges</h2>
       {currentChallenges.map((challenge) => (
         <div className="card" key={challenge.id}>
+          <h3><ProgressCard/></h3>
           <h3>{challenge.title}</h3>
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
           <p>Expiration Date: {challenge.expiration_date}</p>
         </div>
       ))}
+
       <h2>Expired Challenges</h2>
       {expiredChallenges.map((challenge) => (
         <div className="card" key={challenge.id}>
@@ -61,5 +65,5 @@ function ChallengeList(props) {
     </div>
   );
 }
-//ss
+
 export default ChallengeList;

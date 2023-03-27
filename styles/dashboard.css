@@ -1,0 +1,50 @@
+.challenges-box {
+  position: fixed;
+  width: 30%;
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  overflow-y: scroll;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.challenge {
+  border: 1px solid #ccc;
+  padding: 20px;
+  transition: all 0.3s ease;
+  width: 150px;
+}
+.challenge:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.challenge h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.challenge p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.challenge .button {
+  display: inline-block;
+  background-color: #008cba;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  -webkit-animation: button-pulse 1s infinite;
+}
+.challenge .button:hover {
+  background-color: #005f77;
+  cursor: pointer;
+}/*# sourceMappingURL=dashboard.css.map */

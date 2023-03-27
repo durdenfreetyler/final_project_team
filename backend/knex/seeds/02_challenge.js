@@ -11,7 +11,7 @@ exports.seed = async function(knex) {
       description: "3-minute max calories row.",
       points: 4,
       expiration_date: "2023-04-05",
-      created_by: 8,
+      created_by: 1,
       created_at: knex.fn.now(),
     },
     {
@@ -35,7 +35,7 @@ exports.seed = async function(knex) {
       description: "100 bodyweight squats for time",
       points: 2,
       expiration_date: "2023-02-11",
-      created_by: 2,
+      created_by: 1,
       created_at: knex.fn.now(),
     },
     {
@@ -43,7 +43,7 @@ exports.seed = async function(knex) {
       description: "30-minute HIIT workout",
       points: 3,
       expiration_date: "2023-03-15",
-      created_by: 2,
+      created_by: 1,
       created_at: knex.fn.now(),
     },
     {
