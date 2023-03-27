@@ -48,8 +48,8 @@ function App() {
           element={
             <>
               <ChallengeList /> 
-               <JoinChallenge />
               <AvailableChallenges />
+              <JoinChallenge />
             </>
           }
         />
