@@ -1,13 +1,12 @@
-import React from 'react';
-import '../../scss/dashboard.scss';
-import Background from '../front-page/background';
-import EnticeSignup from '../front-page/enticelogin';
-
+import React from "react";
+import "../../scss/dashboard.scss";
+import Background from "../front-page/background";
+import EnticeSignup from "./enticelogin";
 function Dashboard() {
   return (
     <div className="formdash">
       <Background></Background>
-     <EnticeSignup></EnticeSignup>
+      <EnticeSignup></EnticeSignup>
     </div>
   );
 }
