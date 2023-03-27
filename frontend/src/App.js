@@ -52,8 +52,8 @@ function App() {
               <ChallengeList /> 
               <JoinChallenge />
               <AvailableChallenges />
-              {/*<ChallengeCheckIn />*/}
-              {/*<Donate />*/}
+              <ChallengeCheckIn />
+              <Donate />
             </>
           }
         />
