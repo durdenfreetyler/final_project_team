@@ -6,6 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../../scss/challenge.scss'
 import ProgressCard from "../ProgressBar/ProgressCard";
 import Card from "../front-page/cards";
+import ClearButton from "../Buttons/Clear-Button";
+import DeleteButton from "../Buttons/Delete-Button";
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -80,7 +82,6 @@ function ChallengeList(props) {
   return (
    
     <div>
-      <h2>Current Challenges</h2>
       {currentChallenges.length > 0 && (
         <Slider {...settings}>
           {currentChallenges.map((challenge) => (
@@ -92,12 +93,12 @@ function ChallengeList(props) {
               <p>{challenge.description}</p>
               <p>Points: {challenge.points}</p>
               <p>Expiration Date: {challenge.expiration_date}</p>
-              <button onClick={() => handleDelete(challenge.id)}>Delete</button>
+              <button onClick={() => handleDelete(challenge.id)}/>
             </div>
           ))}
         </Slider>
       )}
-      <h2>Expired Challenges</h2>
+      <h2></h2>
       {expiredChallenges.length > 0 && (
         <Slider {...settings}>
           {expiredChallenges.map((challenge) => (
@@ -106,7 +107,10 @@ function ChallengeList(props) {
               <p>{challenge.description}</p>
               <p>Points: {challenge.points}</p>
               <p>Expiration Date: {challenge.expiration_date}</p>
-              <button onClick={() => handleDelete(challenge.id)}>Delete</button>
+            <div>
+              <DeleteButton onClick={() => handleDelete(challenge.id)}/>
+
+            </div>
             </div>
           ))}
         </Slider>

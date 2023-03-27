@@ -3,6 +3,7 @@ import { Line } from 'rc-progress'
 import { ProgressInput } from './ProgressInput'
 import { Button } from './Button'
 import AddButton from '../Buttons/Add-Button'
+import ClearButton from '../Buttons/Clear-Button'
 
 
 const ProgressCard = () => {
@@ -32,7 +33,7 @@ const ProgressCard = () => {
                 <p>{progress}%</p> 
                 <Line percent={progress} strokeWidth="4" /*strokeColor={'any'} *//>
 
-                <form onSubmit={addProgressBar}>
+                <form className='progress-add' onSubmit={addProgressBar}>
                  <ProgressInput 
 
                   type='text'
@@ -42,7 +43,7 @@ const ProgressCard = () => {
 
                  />
                  <AddButton onClick={addProgressBar} type='button' click='Add'/> 
-                 <Button type='button' onClick={clearBar} click='Clear'/> 
+                 <AddButton type='button' onClick={clearBar} click='Clear'/> 
                 </form>
           </div>
     </div>
