@@ -295,6 +295,66 @@ app.delete("/challenge/:id", (req, res) => {
     });
 });
 
+// end point for new user
+// app.post("/users", async (req, res) => {
+//   const { first_name, last_name, email, password } = req.body;
+
+//   try {
+//     // Check if user with given email already exists
+//     const existingUser = await knex("users").where({ email }).first();
+//     if (existingUser) {
+//       return res
+//         .status(409)
+//         .json({ message: "User with that email already exists" });
+//     }
+
+//     // Insert the new user into the database
+//     const newUser = await knex("users")
+//       .insert({
+//         first_name,
+//         last_name,
+//         email,
+//         password,
+//         created_date: new Date(),
+//         is_player: true,
+//         is_challenge_captain: false,
+//       })
+//       .returning("*");
+
+//     res
+//       .status(201)
+//       .json({ message: "User created successfully", data: newUser[0] });
+//   } catch (error) {
+//     console.error(error);
+//     res.sendStatus(500);
+//   }
+// });
+
+// changes cookie to newly registered user
+// app.post("/register", async (req, res) => {
+//   try {
+//     const { firstName, lastName, email, password } = req.body;
+
+//     const [user] = await knex("users")
+//       .insert({
+//         first_name: firstName,
+//         last_name: lastName,
+//         email,
+//         password: password,
+//       })
+//       .returning(["id", "first_name", "last_name", "email"]);
+
+//     res.cookie("userId", user.id, { maxAge: 900000, httpOnly: true }); // set the cookie
+
+//     res.json({ message: "User created successfully", user });
+//   } catch (error) {
+//     console.error(error);
+//     res.sendStatus(500);
+//   }
+// });
+
+
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
