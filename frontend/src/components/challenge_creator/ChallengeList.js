@@ -81,7 +81,7 @@ function ChallengeList(props) {
 
   return (
    
-    <div>
+    <div className="lols">
       {currentChallenges.length > 0 && (
         <Slider {...settings}>
           {currentChallenges.map((challenge) => (
@@ -93,11 +93,13 @@ function ChallengeList(props) {
               <p>{challenge.description}</p>
               <p>Points: {challenge.points}</p>
               <p>Expiration Date: {challenge.expiration_date}</p>
-              <button onClick={() => handleDelete(challenge.id)}/>
+              <div>
+              <DeleteButton onClick={() => handleDelete(challenge.id)}/>
+            </div>
             </div>
           ))}
         </Slider>
-      )}
+       )} 
       <h2></h2>
       {expiredChallenges.length > 0 && (
         <Slider {...settings}>
@@ -109,7 +111,6 @@ function ChallengeList(props) {
               <p>Expiration Date: {challenge.expiration_date}</p>
             <div>
               <DeleteButton onClick={() => handleDelete(challenge.id)}/>
-
             </div>
             </div>
           ))}
