@@ -49,11 +49,11 @@ function App() {
           path="/dashboard"
           element={
             <>
-              <ChallengeList />
-              <ChallengeCheckIn />
+              <ChallengeList /> 
+              <JoinChallenge />
               <AvailableChallenges />
-              <Donate />
-              <ChallengeForm />
+              {/*<ChallengeCheckIn />*/}
+              {/*<Donate />*/}
             </>
           }
         />

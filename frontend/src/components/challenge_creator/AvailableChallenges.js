@@ -36,14 +36,14 @@ function AvailableChallenges(props) {
           const currentDate = new Date();
           return expirationDate >= currentDate;
         });
-        setChallenges(activeChallenges);
+        setChallenges([...activeChallenges]);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchChallenges();
-  }, []);
+  }, []); //challenges?
 
   return (
     <div className="challenges-box">
