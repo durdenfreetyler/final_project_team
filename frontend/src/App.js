@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cookies from "js-cookie";
+import Cookies from "js-cookie"
 import ChallengeForm from "./components/challenge_creator/ChallengeCreator";
 import Login from "./components/Login/Login";
 import HomePage from "./components/front-page/FrontPage";
@@ -14,11 +14,13 @@ import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
 import Dashboard from "./components/DashBoard/DashBoard";
 import ChallengeArticles from "./components/front-page/grid";
+import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckIn";
+import Donate from "./components/challenge_creator/Donate";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [challenge, setChallenge] = useState([]);
-  const [user_challenge, setUser_Challenge] = useState([]);
+  /*const [users, setUsers] = useState([]);
+  const [challenge, setChallenge] = useState([])
+  const [user_challenge, setUser_Challenge] = useState([])
   const [userId, setUserId] = useState(Cookies.get("userId"));
 
   //Pulling in users table
@@ -38,7 +40,8 @@ function App() {
     fetch("/user_challenge")
       .then((res) => res.json())
       .then((user_challenge) => setUser_Challenge(user_challenge));
-  }, []);
+  }, []); */
+
 
   return (
     <Router>
@@ -48,6 +51,8 @@ function App() {
           path="/dashboard"
           element={
             <>
+              <ChallengeList /> 
+              <JoinChallenge />
               <AvailableChallenges />
               <ChallengeList />
               <ChallengeCheckIn />
@@ -59,13 +64,14 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
         <Route path="/Account" element={<Dashboard />} />
-        <Route path="/login" element={<ChallengeArticles />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
         <Route path="/card" element={<Card />} />
       </Routes>
     </Router>
   );
 }
+
 export default App;
 
 // <ChallengeList key={userId} userId={userId} challenge={challenge} />

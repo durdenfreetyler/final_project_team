@@ -10,7 +10,7 @@ function ChallengeForm() {
   const [challenges, setChallenges] = useState([]);
 
   useEffect(() => {
-    console.log("challenges", challenges);
+    //console.log("challenges", challenges);
   }, [challenges]);
 
   const handleSubmit = async (event) => {
@@ -43,8 +43,12 @@ function ChallengeForm() {
       setDescription("");
       setPoints(1);
       setExpirationDate("");
-      console.log("challenges", challenges);
-      console.log("response", response);
+
+      //console.log("challenges", challenges);
+      //console.log("response", response)
+      //console.log("challenges", challenges);
+      //console.log("response", response);
+
     } catch (error) {
       console.error(error.message);
     }

@@ -26,7 +26,7 @@ const ProgressCard = () => {
     <div>
           <div>
 
-                <h1>Challenge status</h1>
+                <h4>Challenge status</h4>
                 <p>{progress >= 100 ? 'All Done!' : 'You got some work to do'}</p> 
                 <p>{progress}%</p> 
                 <Line percent={progress} strokeWidth="4" /*strokeColor={'any'} *//>
