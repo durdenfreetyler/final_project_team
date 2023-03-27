@@ -12,7 +12,7 @@ import AvailableChallenges from "./components/challenge_creator/AvailableChallen
 import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
 import Dashboard from "./components/DashBoard/DashBoard";
-import ChallengeArticles from "./components/front-page/grid";
+import ChallengeArticles from "./components/front-page/challenge_info";
 
 function App() {
   const [users, setUsers] = useState([]);

@@ -7,8 +7,7 @@ import Leaderboard from './LeaderBoard'
 import Slideshow from './SlideShow';
 import SignupSlideshow from './SlideShow';
 import { Helmet } from 'react-helmet';
-import EnticeSignup from './enticelogin';
-import ChallengeArticles from './grid';
+import ChallengeArticles from './challenge_info';
 
 
 
@@ -62,7 +61,7 @@ function HomePage() {
         <div class="grid">
         <div class="challenge-grid">
         <Background></Background>
-  <div class="challenge">
+  {/* <div class="challenge">
     <h2 class="challenge-title">30-Day Plank Challenge</h2>
     <p class="challenge-description">Build core strength and endurance by holding a plank for longer periods of time over 30 days.</p>
   </div>
@@ -85,7 +84,7 @@ function HomePage() {
   <div class="challenge">
     <h2 class="challenge-title">30-Day Yoga Challenge</h2>
     <p class="challenge-description">Improve your flexibility and mindfulness by practicing yoga for 30 days straight.</p>
- </div>
+ </div> */}
   </div>
   
   
