@@ -51,7 +51,7 @@ function App() {
           element={
             <>
               <ChallengeList /> 
-               <JoinChallenge />
+              <JoinChallenge />
               <AvailableChallenges />
               <ChallengeCheckIn />
               <Donate />
@@ -61,7 +61,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/slideshow" element={<Slideshow />} />
         <Route path="/Account" element={<Dashboard />} />
-        <Route path="/login" element={<ChallengeArticles />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
         <Route path="/card" element={<Card />} />
       </Routes>
