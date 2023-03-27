@@ -14,32 +14,32 @@ import ChallengeArticles from "./components/front-page/grid";
 import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckIn";
 import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
-import Dashboard from "./components/dashboard/DashBoard";
+import Dashboard from "./components/DashBoard/DashBoard";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [challenge, setChallenge] = useState([]);
-  const [user_challenge, setUser_Challenge] = useState([]);
-  const [userId, setUserId] = useState(Cookies.get("userId"));
+  // const [users, setUsers] = useState([]);
+  // const [challenge, setChallenge] = useState([]);
+  // const [user_challenge, setUser_Challenge] = useState([]);
+  // const [userId, setUserId] = useState(Cookies.get("userId"));
 
-  //Pulling in users table
-  useEffect(() => {
-    fetch("/users")
-      .then((res) => res.json())
-      .then((users) => setUsers(users));
-  }, []);
-  //Pulling in challenge table
-  useEffect(() => {
-    fetch("/challenge")
-      .then((res) => res.json())
-      .then((challenge) => setChallenge(challenge));
-  }, []);
-  //Pulling in user_challenge table
-  useEffect(() => {
-    fetch("/user_challenge")
-      .then((res) => res.json())
-      .then((user_challenge) => setUser_Challenge(user_challenge));
-  }, []);
+  // //Pulling in users table
+  // useEffect(() => {
+  //   fetch("/users")
+  //     .then((res) => res.json())
+  //     .then((users) => setUsers(users));
+  // }, []);
+  // //Pulling in challenge table
+  // useEffect(() => {
+  //   fetch("/challenge")
+  //     .then((res) => res.json())
+  //     .then((challenge) => setChallenge(challenge));
+  // }, []);
+  // //Pulling in user_challenge table
+  // useEffect(() => {
+  //   fetch("/user_challenge")
+  //     .then((res) => res.json())
+  //     .then((user_challenge) => setUser_Challenge(user_challenge));
+  // }, []);
 
   return (
     <Router>
