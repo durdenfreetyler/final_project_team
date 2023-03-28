@@ -11,7 +11,7 @@ export default function NavBar({type, onClick, click}) {
   		<ul class="pt-5">
   			<li><a href="/">Home</a></li>
   			<li><a href="/account">Account</a></li>
-  			<li><a href="/dashboard">About</a></li>
+  			<li><a href="/About-us">About</a></li>
   			<li><a href="/create-challenge">Create</a></li>
         <li><a href="/Login">Login</a></li>
   		</ul>

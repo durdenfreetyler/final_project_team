@@ -15,6 +15,7 @@ import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckI
 import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
 import Dashboard from "./components/DashBoard/DashBoard";
+import AboutUs from "./components/DashBoard/Aboutus";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -63,7 +64,7 @@ function App() {
         <Route path="/Account" element={<Dashboard/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/create-challenge" element={<ChallengeForm />} />
-        <Route path="/card" element={<Card />} />
+        <Route path="/About-us" element={<AboutUs />} />
       </Routes>
     </Router>
   );
