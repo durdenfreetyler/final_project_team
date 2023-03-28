@@ -3,6 +3,9 @@ import axios from "axios";
 // import { JoinChallenge } from "./JoinChallenge";
 import AvailableChallenges from "./AvailableChallenges";
 import DeleteButton from "./Delete-Button";
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -92,49 +95,61 @@ function ChallengeList(props) {
        console.error(error);
      }
    };
+   const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    style: {
+      margin: "0 auto",
+      width: "35%",
+    },
+  };
 
   return (
     <div>
-      <AvailableChallenges
-        fetchUserChallenges={fetchUserChallenges}
-        setCurrentChallenges={setCurrentChallenges}
-      />
       <h2>Current Challenges</h2>
-      {currentChallenges.map((challenge) => (
-        <div className="card" key={challenge.id}>
-          <h3>{challenge.title}</h3>
-          <p>{challenge.description}</p>
-          <p>Points: {challenge.points}</p>
-          <p>Expiration Date: {challenge.expiration_date}</p>
-          <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
-          <button onClick={() => handleChallengeCheckIn(challenge.id)}>
-            Mark Completed
-          </button>
-        </div>
-      ))}
+      <Slider {...settings}>
+        {currentChallenges.map((challenge) => (
+          <div className="card" key={challenge.id}>
+            <h3>{challenge.title}</h3>
+            <p>{challenge.description}</p>
+            <p>Points: {challenge.points}</p>
+            <p>Expiration Date: {challenge.expiration_date}</p>
+            <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
+            <button onClick={() => handleChallengeCheckIn(challenge.id)}>
+              Mark Completed
+            </button>
+          </div>
+        ))}
+      </Slider>
       <h2>Expired Challenges</h2>
-      {expiredChallenges.map((challenge) => (
-        <div className="card" key={challenge.id}>
-          <h3>{challenge.title}</h3>
-          <p>{challenge.description}</p>
-          <p>Points: {challenge.points}</p>
-          <p>Expiration Date: {challenge.expiration_date}</p>
-          <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
-          {challenge.completed_before_expiration ? (
-            <p>
-              Player completed challenge before expiration and did not donate to
-              charity
-            </p>
-          ) : (
-            <p>
-              Player did not complete challenge before expiration and donated to
-              charity
-            </p>
-          )}
-        </div>
-      ))}
+      <Slider {...settings}>
+        {expiredChallenges.map((challenge) => (
+          <div className="card" key={challenge.id}>
+            <h3>{challenge.title}</h3>
+            <p>{challenge.description}</p>
+            <p>Points: {challenge.points}</p>
+            <p>Expiration Date: {challenge.expiration_date}</p>
+            <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
+            {challenge.completed_before_expiration ? (
+              <p>
+                Player completed challenge before expiration and did not donate to
+                charity
+              </p>
+            ) : (
+              <p>
+                Player did not complete challenge before expiration and donated to
+                charity
+              </p>
+            )}
+          </div>
+        ))}
+      </Slider>
     </div>
-  );
+  );  
 }
 
 export default ChallengeList;
