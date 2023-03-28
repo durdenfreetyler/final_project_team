@@ -10,7 +10,7 @@ const EnticeSignup = () => {
         
           <div className="logsin-img">
             
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="Gamer" />
+            <img src="https://cdn.discordapp.com/attachments/1073664859222319154/1089408578651176990/medit.webp" alt="Gamer" />
           </div>
           <div className="logsin-label">Home</div>
           <div className="logsin-title">
@@ -23,7 +23,7 @@ const EnticeSignup = () => {
       <a href='/Dashboard'> 
         <div className="logsin-content">
           <div className="logsin-img">
-            <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="keyboard" />
+            <img src="https://cdn.discordapp.com/attachments/1073664859222319154/1089408603775053936/steps.jpg" alt="keyboard" />
           </div>
           <div className="logsin-label">
             Create Challenge
@@ -38,7 +38,7 @@ const EnticeSignup = () => {
       <a href='/Our-Team'> 
         <div className="logsin-content">
           <div className="logsin-img">
-            <img src="https://images.unsplash.com/photo-1519326844852-704caea5679e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2034&q=80" alt="Controller" />
+            <img src="https://cdn.discordapp.com/attachments/1073664859222319154/1089408603171078174/rocky-steps-poster.webp" alt="Controller" />
           </div>
           <div className="logsin-label">
             About Us

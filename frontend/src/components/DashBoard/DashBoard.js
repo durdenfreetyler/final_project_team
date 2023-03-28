@@ -8,11 +8,13 @@ import Donate from "../challenge_creator/Donate";
 import Background from "../front-page/background";
 import NavBar from "../front-page/NavBar";
 import EnticeSignup from "./enticelogin";
+import Header from "./Header";
 
 
 function Dashboard() {
   return (
     <div className="formdash">
+      <Header></Header>
      <NavBar/>
       {/* <EnticeSignup/> */}
       <ChallengeList/>

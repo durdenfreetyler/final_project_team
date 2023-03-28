@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet";
 import ChallengeArticles from "./Challenge_info";
 import NavBar from "./NavBar";
 import Header from "../DashBoard/Header";
-// import EnticeSignup from "../dashboard/enticelogin";
+import EnticeSignup from "../DashBoard/enticelogin";
 
 //import Leader_Button from './LeaderBoard_Button'
 
@@ -32,6 +32,7 @@ function HomePage() {
   
     </div>
     <Slideshow></Slideshow>
+    <EnticeSignup/>
     <Leaderboard/>
     <footer>
       <div class="footer-container">
