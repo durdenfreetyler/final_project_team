@@ -52,10 +52,10 @@ function App() {
             <>
               {/* <AvailableChallenges /> */}
               {/* <ChallengeList />  */}
-              {/* <ChallengeForm/> */}
+              <ChallengeForm/>
               {/* <JoinChallenge />  */}
-              <ChallengeCheckIn />
-              <Donate /> 
+              {/* <ChallengeCheckIn />
+              <Donate />  */}
             </>
           }
         />
