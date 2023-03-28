@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { JoinChallenge } from "./JoinChallenge";
+import AvailableChallenges from "./AvailableChallenges";
+import DeleteButton from "./Delete-Button";
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -14,6 +16,9 @@ function ChallengeList(props) {
         { is_completed: true, completed_before_expiration: true },
         { withCredentials: true }
       );
+      const completedChallenge = currentChallenges.find(
+        (challenge) => challenge.id === challengeId
+      );
       const updatedChallenge = response.data;
       // Remove the updated challenge from the currentChallenges array
       setCurrentChallenges((prevChallenges) =>
@@ -23,25 +28,19 @@ function ChallengeList(props) {
       // Add the updated challenge to the expiredChallenges array
       setExpiredChallenges((prevChallenges) => [
         ...prevChallenges,
-        updatedChallenge,
-        // {
-        //   ...currentChallenges.find(
-        //     (challenge) => challenge.id === challengeId
-        //   ),
-        //   is_completed: true,
-        // },
+        {
+          ...completedChallenge,
+          is_completed: true,
+          completed_before_expiration: true,
+        },
       ]);
 
-      console.log("response", response);
+      // console.log("response", response);
     } catch (error) {
       console.error(error.message);
     }
   };
-  console.log("expiredChallenges", expiredChallenges);
-
-  // const handleJoinChallenge = (newChallenge) => {
-  //   setCurrentChallenges((prevChallenges) => [...prevChallenges, newChallenge]);
-  // };
+ 
 
   const fetchUserChallenges = async () => {
     try {
@@ -69,9 +68,37 @@ function ChallengeList(props) {
   useEffect(() => {
     fetchUserChallenges();
   }, []);
+   const handleDelete = async (id) => {
+     try {
+       await axios({
+         baseURL: `http://localhost:3001/challenge`,
+         url: `/${id}`,
+         method: "DELETE",
+         headers: { "Content-Type": "application/json" },
+         withCredentials: true,
+       });
+       const newExpired = expiredChallenges.filter(
+         (challenge) => challenge.challenge_id !== id
+       );
+       //console.log('new expired', newExpired)
+       setExpiredChallenges(newExpired);
+       const newCurrent = currentChallenges.filter(
+         (challenge) => challenge.challenge_id !== id
+       );
+       //console.log('new Current', newCurrent)
+       setCurrentChallenges(newCurrent);
+       //console.log('current challenges', currentChallenges)
+     } catch (error) {
+       console.error(error);
+     }
+   };
 
   return (
     <div>
+      <AvailableChallenges
+        fetchUserChallenges={fetchUserChallenges}
+        setCurrentChallenges={setCurrentChallenges}
+      />
       <h2>Current Challenges</h2>
       {currentChallenges.map((challenge) => (
         <div className="card" key={challenge.id}>
@@ -79,12 +106,12 @@ function ChallengeList(props) {
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
           <p>Expiration Date: {challenge.expiration_date}</p>
+          <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
           <button onClick={() => handleChallengeCheckIn(challenge.id)}>
             Mark Completed
           </button>
         </div>
       ))}
-
       <h2>Expired Challenges</h2>
       {expiredChallenges.map((challenge) => (
         <div className="card" key={challenge.id}>
@@ -92,6 +119,7 @@ function ChallengeList(props) {
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
           <p>Expiration Date: {challenge.expiration_date}</p>
+          <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
           {challenge.completed_before_expiration ? (
             <p>
               Player completed challenge before expiration and did not donate to

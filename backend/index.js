@@ -287,17 +287,20 @@ app.post("/user_challenge", authenticateUser, async (req, res) => {
     }
 
     // Insert the user into the challenge
-    await knex("user_challenge").insert({
-      user_id: userId,
-      challenge_id: challenge_id,
-      criteria_type: "...",
-      criteria_value: "...",
-      progress: 0,
-      is_completed: false,
-      completed_before_expiration: false,
-    });
-
-    res.status(201).json({ message: "User joined the challenge" });
+    const updatedChallenge = await knex("user_challenge")
+      .insert({
+        user_id: userId,
+        challenge_id: challenge_id,
+        criteria_type: "...",
+        criteria_value: "...",
+        progress: 0,
+        is_completed: false,
+        completed_before_expiration: false,
+      })
+      .returning("*");
+    res
+      .status(201)
+      .json({ message: "User joined the challenge", updatedChallenge });
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
