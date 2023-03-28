@@ -1,11 +1,10 @@
 import { Button } from "antd";
 import React from "react";
-import "../../scss/App.scss";
+import "../../scss/Main-Screen.scss";
 import Background from "./background";
 import Card from "./cards";
 import Leaderboard from "./LeaderBoard";
 import Slideshow from "./SlideShow";
-import SignupSlideshow from "./SlideShow";
 import { Helmet } from "react-helmet";
 import ChallengeArticles from "./Challenge_info";
 import NavBar from "./NavBar";
