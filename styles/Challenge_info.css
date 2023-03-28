@@ -7,6 +7,7 @@
   justify-content: center;
   -webkit-justify-content: center;
   max-width: 10020px;
+  padding-left: 0.75rem;
 }
 
 .card--1 .card__img, .card--1 .card__img--hover {

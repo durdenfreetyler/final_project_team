@@ -7,7 +7,7 @@
   grid-gap: 4.75em;
   grid-template-areas: "a a b c" "a a d d";
   width: 90%;
-  margin: 45px 25px 25px 65px;
+  margin: 125px 25px 125px 65px;
 }
 
 .logsin {
