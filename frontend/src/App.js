@@ -16,6 +16,7 @@ import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";
 import Dashboard from "./components/DashBoard/DashBoard";
 import Header from "./components/DashBoard/Header";
+import NavBar from "./components/front-page/NavBar";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -52,6 +53,7 @@ function App() {
             <>
               {/* <AvailableChallenges /> */}
               {/* <ChallengeList />  */}
+              <NavBar/>
               <ChallengeForm/>
               {/* <JoinChallenge />  */}
               {/* <ChallengeCheckIn />

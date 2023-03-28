@@ -18,6 +18,10 @@ function HomePage() {
   return (
     
     <div className="App">
+       <Helmet>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </Helmet>
       <Header></Header>
        <Background></Background>
         <NavBar></NavBar>
@@ -37,14 +41,14 @@ function HomePage() {
       <div class="footer-container">
         <div class="footer-logo">
           <img src="https://i.pinimg.com/564x/db/63/df/db63dfb015cec41306deee05c762d2a0.jpg" alt="Logo"></img>
-          <h3>Wok & Roll</h3>
+          <h3>Challenge Accepted</h3>
         </div>
         
         <div class="footer-social">
           <h3>Follow us on social media</h3>
           <div class="social-icons">
             <a href="https://www.facebook.com/profile.php?id=100089970687570"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/durdenfreetyler/final_project_team/blob/master/frontend/src/components/front-page/FrontPage.js"><i class="fab fa-github"></i></a>
             <a href="https://www.instagram.com/wok_and_roll98/"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
