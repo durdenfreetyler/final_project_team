@@ -6,6 +6,35 @@
   
 }
 
+//   .navbar {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     .navbar-brand {
+//       font-size: 1.5rem;
+//       font-weight: bold;
+//       color: #212529;
+//       text-decoration: none;
+
+//       &:hover {
+//         color: #007bff;
+//       }
+//     }
+
+//     .nav-link {
+//       font-size: 1.2rem;
+//       color: #212529;
+//       text-decoration: none;
+//       padding: 0.5rem;
+
+//       &:hover {
+//         color: #007bff;
+//       }
+//     }
+//   }
+// }
+
 // Styles for jumbotron
 
 .jumbotron {
@@ -61,114 +90,78 @@ p {
 
 // Styles for footer
 
-footer {
-  background-color: #f5f5f5;
-  padding: 40px 0;
-  font-size: 16px;
-  bottom: 0;
+.footer {
+  background-color: #1e81e3;
 }
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  margin-bottom: 20px;
+
+
+.navMenu {
+  position: absolute;
+  top: 5%;
+  left: 52.5%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.footer-logo img {
-  width: 70px;
-  height: 60px;
-}
-
-.footer-logo h3 {
-  color: #333;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  margin-left: 10px;
-}
-
-.footer-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-nav li {
-  margin-right: 30px;
-}
-
-.footer-nav li:last-child {
-  margin-right: 0;
-}
-
-.footer-nav a {
-  color: #333;
+.navMenu a {
+  color: #000000;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
-
-.footer-nav a:hover {
-  color: #a0522d;
-}
-
-.footer-social h3 {
-  color: #333;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-.social-icons {
-  display: flex;
-  margin-top: 10px;
-}
-
-.social-icons a {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  margin-right: 10px;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
+  width: 100px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-.social-icons a:hover {
-  background-color: #a0522d;
-}
-
-.social-icons a i {
-  color: #333;
-  font-size: 20px;
-  line-height: 40px;
-}
-
-footer {
-  background-color: #c5b9b9;
-}
-
-.footer-bottom {
-  background-color: #000000;
+.navMenu a:hover {
   color: #ffffff;
-  text-align: center;
-  padding: 10px 0;
-
 }
 
-.footer-bottom p {
-  margin:0;
-  padding: 0;
-  font-size: 14px;
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(32px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(45px);
+  transform: translateX(45px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(145px);
+  transform: translateX(145px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(250px);
+  transform: translateX(250px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(345px);
+  transform: translateX(345px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .challenge-grid {
@@ -208,10 +201,10 @@ footer {
 }
 
 header {
-	background: url('https://runkeeper.com/cms/wp-content/uploads/sites/4/2022/12/Running-Image-12.jpg');
+	background: url('https://www.eatthis.com/wp-content/uploads/sites/4/2022/02/My-project-2022-02-09T091954.329.jpg?quality=82&strip=1&w=1250');
 	text-align: center;
 	width: 100%;
-	height: 550px;
+	height: auto;
 	background-size: cover;
 	background-attachment: fixed;
 	position: relative;
@@ -225,7 +218,7 @@ header .overlay{
 	padding: 100px;
 	color: #FFF;
 	text-shadow: 1px 1px 1px #333;
-  background-image: linear-gradient( 135deg, #e31ac869 10%, #2547ad 100%);
+  background-image: linear-gradient( 135deg, #00000069 10%, #e7d8d8 100%);
 	
 }
 
@@ -242,22 +235,58 @@ header h3, p {
   display: flex;
 }
 
-// .button {
-// 	border: none;
-// 	outline: none;
-// 	padding: 10px 20px;
-// 	border-radius: 50px;
-// 	color: #333;
-// 	background: #fff;
-// 	margin-bottom: 50px;
-// 	box-shadow: 0 3px 20px 0 #0000003b;
-//   margin-right: 100px;
-// }
-// .button:hover{
-// 	cursor: pointer;
-// }
+.button {
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #333;
+	background: #fff;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 20px 0 #0000003b;
+  margin-right: 100px;
+}
+.button:hover{
+	cursor: pointer;
+}
 
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+}
 
+footer h3 {
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+footer p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #ccc;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+footer ul li i {
+  margin-right: 10px;
+  color: #fff;
+}
+
+footer ul li a {
+  color: #fff;
+}
 
 .social-list {
   list-style: none;
@@ -284,103 +313,4 @@ header h3, p {
 
 .social-list li a:hover {
   background-color: #0056b3;
-}
-
-.social-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-$social-button-size: 64px;
-$social-button-icon-size: 0.4;
-$social-button-background: #fff;
-$social-button-active-color: #fff;
-$social-button-transition-time: 0.3s;
-
-$social-button-colors: (
-  'mail': #0072c6,
-  'facebook': #3b5999,
-  'github': #6e5494,
-  'codepen': #212121,
-  'snapchat': #eec900,
-  'instagram': #e4405f,
-);
-
-.social-button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  width: $social-button-size;
-  height: $social-button-size;
-  text-decoration: none;
-  border-radius: 100%;
-  background: $social-button-background;
-  text-align: center;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    display: block;
-    width: 0;
-    height: 0;
-    border-radius: 100%;
-    transition: $social-button-transition-time;
-  }
-
-  &:focus,
-  &:hover {
-    color: $social-button-active-color;
-
-    &::after {
-      width: calc(100% + 2px);
-      height: calc(100% + 2px);
-      margin-left: calc(-50% - 1px);
-    }
-  }
-
-  i,
-  svg {
-    position: relative;
-    z-index: 1;
-    transition: $social-button-transition-time;
-  }
-
-  i {
-    font-size: $social-button-size * $social-button-icon-size;
-  }
-
-  svg {
-    height: percentage($social-button-icon-size);
-    width: percentage($social-button-icon-size);
-  }
-
-  @each $name, $color in $social-button-colors {
-    &--#{$name} {
-      color: $color;
-
-      &::after {
-        background: $color;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1030px) {
-  .social-button{
-    width: 50px;
-    height: 50px;
-  }
-  i {
-    font-size: 16px;
-  }
-  svg {
-    height: 40%;
-    width: 40%;
-  }
 }
