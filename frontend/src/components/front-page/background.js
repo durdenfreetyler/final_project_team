@@ -34,7 +34,9 @@ function Background() {
 	<div class="particle"></div>
 	<div class="particle"></div>
 	<div class="particle"></div>
+  <div class="box"></div>
 </div>
+
   );
 }
 

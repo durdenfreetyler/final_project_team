@@ -8,6 +8,7 @@ import Slideshow from "./SlideShow";
 import SignupSlideshow from "./SlideShow";
 import { Helmet } from "react-helmet";
 import ChallengeArticles from "./Challenge_info";
+import NavBar from "./NavBar";
 // import EnticeSignup from "../dashboard/enticelogin";
 
 //import Leader_Button from './LeaderBoard_Button'
@@ -23,30 +24,7 @@ function HomePage() {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </Helmet>
-      <nav class="nav-Bar">
-      <a href="#" class="logo">Challenge Champions</a>
-      <div class="nav-links">
-        <div class="social-buttons">
-          <a href="https://www.facebook.com/profile.php?id=100089970687570" class="social-button social-button--facebook" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/wok_and_roll98/" class="social-button social-button--instagram" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>          </a>
-          <a href="#" class="social-button social-button--snapchat" aria-label="Snapchat">
-            <i class="fab fa-snapchat-ghost"></i>
-          </a>
-          <a href="https://github.com/jackymomomo/Food-Pick-up-Ordering-app" class="social-button social-button--github" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="#" class="social-button social-button--codepen" aria-label="CodePen">
-            <i class="fab fa-codepen"></i>
-          </a>
-        </div>
-      </div>
-      <a href="/login" id="cart-icon" class="signup-btn">LOGIN<div id="cart-icon">
-        <i class="fa-solid fa-bag-shopping fa-lg"></i>
-      </div></a>
-    </nav>
+  <NavBar/>
     <div class="overlay">
 <h1>Challenge Champions</h1>
 <h3></h3>
@@ -63,6 +41,7 @@ function HomePage() {
   
     </div>
     <Slideshow></Slideshow>
+    <Leaderboard/>
     <footer>
       <div class="footer-container">
         <div class="footer-logo">
