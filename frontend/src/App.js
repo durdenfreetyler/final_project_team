@@ -10,7 +10,7 @@ import ChallengeList from "./components/challenge_creator/ChallengeList";
 import Donate from "./components/challenge_creator/Donate";
 import Card from "./components/front-page/cards";
 import ChallengeMenu from "./components/challenge_creator/Menu";
-import ChallengeArticles from "./components/front-page/grid";
+import ChallengeArticles from "./components/front-page/Challenge_info";
 import { ChallengeCheckIn } from "./components/challenge_creator/ChallengeCheckIn";
 import { JoinChallenge } from "./components/challenge_creator/JoinChallenge";
 import AvailableChallenges from "./components/challenge_creator/AvailableChallenges";

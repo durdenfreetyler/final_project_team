@@ -6,6 +6,7 @@ import DeleteButton from "./Delete-Button";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../../scss/challenge.scss'
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -109,11 +110,10 @@ function ChallengeList(props) {
   };
 
   return (
-    <div>
-      <h2>Current Challenges</h2>
+    <div className="lols">
       <Slider {...settings}>
         {currentChallenges.map((challenge) => (
-          <div className="card" key={challenge.id}>
+          <div className="challenge-card" key={challenge.id}>
             <h3>{challenge.title}</h3>
             <p>{challenge.description}</p>
             <p>Points: {challenge.points}</p>
@@ -125,10 +125,9 @@ function ChallengeList(props) {
           </div>
         ))}
       </Slider>
-      <h2>Expired Challenges</h2>
       <Slider {...settings}>
         {expiredChallenges.map((challenge) => (
-          <div className="card" key={challenge.id}>
+          <div className="challenge-card" key={challenge.id}>
             <h3>{challenge.title}</h3>
             <p>{challenge.description}</p>
             <p>Points: {challenge.points}</p>
