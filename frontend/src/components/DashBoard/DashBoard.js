@@ -1,7 +1,10 @@
 import React from "react";
 import "../../scss/dashboard.scss";
 import AvailableChallenges from "../challenge_creator/AvailableChallenges";
+import { ChallengeCheckIn } from "../challenge_creator/ChallengeCheckIn";
+import ChallengeForm from "../challenge_creator/ChallengeCreator";
 import ChallengeList from "../challenge_creator/ChallengeList";
+import Donate from "../challenge_creator/Donate";
 import Background from "../front-page/background";
 import NavBar from "../front-page/NavBar";
 import EnticeSignup from "./enticelogin";
@@ -12,10 +15,9 @@ function Dashboard() {
       {/* <EnticeSignup/> */}
       <ChallengeList/>
        <AvailableChallenges />
-              {/* <ChallengeForm/> */}
+              <ChallengeForm/>
               {/* <JoinChallenge />  */}
-              {/* <ChallengeCheckIn />
-              <Donate />  */}
+              <Donate /> 
     </div>
   );
 }
