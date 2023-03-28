@@ -1,6 +1,8 @@
 import React from 'react'
 import { useRef, useState, useEffect, useContext } from 'react'
 import AuthContext from '../../context/AuthProvider';
+import Background from '../front-page/background';
+import NavBar from '../front-page/NavBar';
 //import axios from './api/axios';
 
 //const LOGIN_URL = '/auth';
@@ -15,9 +17,9 @@ const Login = () => {
   const [errMsg, setErrMsg] =  useState('');
   const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    userRef.current.focus(); 
-  }, []);
+  // useEffect(() => {
+  //   userRef.current.focus(); 
+  // }, []);
 
   useEffect(() => {
     setErrMsg('');
@@ -67,33 +69,35 @@ const Login = () => {
           <h1>You are logged in!</h1>
           <br />
           <p>
-            <a href="http://localhost:3000/dashboard" >Go to Dashboard</a>
+            <a href="/dashboard" >Go to Dashboard</a>
           </p>
         </section>
       ) : (
     <section>
       <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg} </p>
-      <h1> Sign in</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='username'>Username</label>
-        <input 
-          type="text" 
-          id="username"
-          ref={userRef} 
-          autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}  
-          required
-        />
-        <label htmlFor='password'>Password</label>
-        <input 
-          type="password" 
-          id="password"
-          onChange={(e) => setPwd(e.target.value)}
-          value={pwd}  
-          required
-        />
-        <button>Sign In</button>  
+      {/* <h1> Sign in</h1> */}
+      <Background/>
+      <form className='bobs' onSubmit={handleSubmit}>
+      <Background/>
+      <div class='bold-line'></div>
+      <Background/>
+<div class='containersss'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Hello There!</div>
+      <div class='subtitle'>We're almost done. Before using our services you need to create an account.</div>
+      <div class='input-fields'>
+        <input type='text' placeholder='Username' class='input-line full-width'></input>
+        <input type='email' placeholder='Email' class='input-line full-width'></input>
+        <input type='password' placeholder='Password' class='input-line full-width'></input>
+
+      </div>
+      <div class='spacing'>or continue with <span class='highlight'>Facebook</span></div>
+      <div><button class='ghost-round full-width'>Create Account</button></div>
+    </div>
+  </div>
+</div>
       </form>
       <p>
         Need an Account?<br />
@@ -102,6 +106,7 @@ const Login = () => {
           <a href="">Sign Up</a>
         </span>
       </p>
+      <NavBar/>
     </section>
     )}
   </>      

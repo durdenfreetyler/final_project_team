@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { JoinChallenge } from "./JoinChallenge";
 import AvailableChallenges from "./AvailableChallenges";
-import DeleteButton from "./Delete-Button";
+import DeleteButton from "../Buttons/Delete-Button";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../../scss/challenge.scss'
+import ProgressCard from "../ProgressBar/ProgressCard";
+import AddButton from "../Buttons/Add-button";
+import ClearButton from "../Buttons/Clear-button";
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -109,19 +112,23 @@ function ChallengeList(props) {
     },
   };
 
+
   return (
     <div className="lols">
       <Slider {...settings}>
         {currentChallenges.map((challenge) => (
           <div className="challenge-card" key={challenge.id}>
+            <div>
+            <ProgressCard />
+            </div>
             <h3>{challenge.title}</h3>
             <p>{challenge.description}</p>
             <p>Points: {challenge.points}</p>
             <p>Expiration Date: {challenge.expiration_date}</p>
             <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
-            <button onClick={() => handleChallengeCheckIn(challenge.id)}>
-              Mark Completed
-            </button>
+            <ClearButton onClick={() => handleChallengeCheckIn(challenge.id)} />
+           
+              
           </div>
         ))}
       </Slider>

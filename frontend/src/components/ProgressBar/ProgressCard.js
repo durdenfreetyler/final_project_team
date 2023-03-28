@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import { Line } from 'rc-progress'
 import { ProgressInput } from './ProgressInput'
 import { Button } from './Button'
+import AddButton from '../Buttons/Add-button'
+import '../../scss/progressbar.scss'
+import ProgressnNumber from '../Buttons/Progressnumber'
 
 
 const ProgressCard = () => {
@@ -26,13 +29,13 @@ const ProgressCard = () => {
     <div>
           <div>
 
-                <h4>Challenge status</h4>
+                <h2>Challenge status</h2>
                 <p>{progress >= 100 ? 'All Done!' : 'You got some work to do'}</p> 
                 <p>{progress}%</p> 
                 <Line percent={progress} strokeWidth="4" /*strokeColor={'any'} *//>
 
-                <form onSubmit={addProgressBar}>
-                 <ProgressInput 
+                <form className='progress-add' onSubmit={addProgressBar}>
+                 <ProgressnNumber
 
                   type='text'
                   increase={increase}
@@ -40,8 +43,8 @@ const ProgressCard = () => {
                   placeholder='Add Progress'
 
                  />
-                 <Button type='submit' click='Add'/> 
-                 <Button type='button' onClick={clearBar} click='Clear'/> 
+                 <AddButton onClick={addProgressBar} type='button' click='Add'/> 
+                 <AddButton type='button' onClick={clearBar} click='Clear'/> 
                 </form>
           </div>
     </div>

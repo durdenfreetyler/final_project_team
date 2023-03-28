@@ -49,6 +49,7 @@ const EnticeSignup = () => {
         </div>
             </a>
       </div>
+     
       <div className="logsin form">
         <div className="form-title">
           <a href='/login'>USER LOGIN</a>

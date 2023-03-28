@@ -1,5 +1,6 @@
 import React from "react";
 import "../../scss/dashboard.scss";
+import AvailableChallenges from "../challenge_creator/AvailableChallenges";
 import ChallengeList from "../challenge_creator/ChallengeList";
 import Background from "../front-page/background";
 import NavBar from "../front-page/NavBar";
@@ -8,9 +9,13 @@ function Dashboard() {
   return (
     <div className="formdash">
      <NavBar/>
-      <EnticeSignup/>
+      {/* <EnticeSignup/> */}
       <ChallengeList/>
-      
+       <AvailableChallenges />
+              {/* <ChallengeForm/> */}
+              {/* <JoinChallenge />  */}
+              {/* <ChallengeCheckIn />
+              <Donate />  */}
     </div>
   );
 }
