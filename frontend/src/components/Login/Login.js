@@ -83,7 +83,7 @@ const Login = () => {
       <Background/>
 <div class='containersss'>
   <div class='window'>
-    <div class='overlay'></div>
+    <div class='login-overlay'></div>
     <div class='content'>
       <div class='welcome'>Hello There!</div>
       <div class='subtitle'>We're almost done. Before using our services you need to create an account.</div>

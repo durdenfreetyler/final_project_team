@@ -1,20 +1,17 @@
 import React from 'react';
-import '../../scss/aboutus.scss'
-import NavBar from '../front-page/NavBar';
+import '../../scss/App.scss'
 
-const AboutUs = () => {
+
+function Header () {
   return (
-    <header>
+    <header className='headers'>
 	<div class="overlay">
-<h1>Simply The Best</h1>
-<h3>Reasons for Choosing US</h3>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab.</p>
+<h1>Challenge Accepted</h1>
 	<br></br>
-	<button>READ MORE</button>
 		</div>
 </header>
 
   );
 };
 
-export default AboutUs;
+export default Header;

@@ -9,6 +9,7 @@ import SignupSlideshow from "./SlideShow";
 import { Helmet } from "react-helmet";
 import ChallengeArticles from "./Challenge_info";
 import NavBar from "./NavBar";
+import Header from "../DashBoard/Header";
 // import EnticeSignup from "../dashboard/enticelogin";
 
 //import Leader_Button from './LeaderBoard_Button'
@@ -18,6 +19,7 @@ function HomePage() {
   return (
     
     <div className="App">
+      <Header></Header>
        <Background></Background>
         <NavBar></NavBar>
         <Card></Card>

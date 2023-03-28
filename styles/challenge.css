@@ -264,7 +264,7 @@ button:focus {
   background: url("https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823") top left no-repeat;
 }
 
-.overlay {
+.login-overlay {
   background: linear-gradient(#8CA6DB, #B993D6);
   opacity: 0.85;
   filter: alpha(opacity=85);
