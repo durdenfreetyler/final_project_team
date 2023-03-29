@@ -42,8 +42,8 @@ function AvailableChallenges(props) {
 
   return (
     <div className="challenges-box">
-      <ChallengeForm
-      />
+      {/* <ChallengeForm
+      /> */}
       <div className="challenges-grid">
         {props.availableChallenges.map((challenge) => (
           <div className="challenge" key={challenge.id}>

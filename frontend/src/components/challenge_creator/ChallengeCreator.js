@@ -82,6 +82,7 @@ function ChallengeForm(props) {
 
   return (
     <div>
+      <NavBar/>
       <form onSubmit={handleSubmit}>
       <h1>Create your Challenge here</h1>
         <label>
