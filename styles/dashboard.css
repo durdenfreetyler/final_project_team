@@ -1,17 +1,21 @@
 .challenges-box {
+  width: 50%;
+  height: 500px;
   background-color: #fff;
   border: 1px solid #ccc;
   overflow-y: scroll;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  left: 0;
 }
 
 .challenges-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
+  margin-top: 500px;
 }
 
 .challenge {

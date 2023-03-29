@@ -2,12 +2,12 @@
 Leaderboard
 --------------------*/
 .leaderboard {
-  margin: 200px 10px 100px 10px;
   position: absolute;
   z-index: 7;
+  top: 240%;
   left: 80%;
   transform: translate(-50%, -50%);
-  width: 25%;
+  width: 29%;
   height: 308px;
   background: linear-gradient(to bottom, #3a404d, #181c26);
   border-radius: 10px;

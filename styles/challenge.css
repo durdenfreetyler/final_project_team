@@ -97,7 +97,7 @@ form button:hover {
 .lols {
   display: flex;
   left: 0;
-  margin: 55px 2.5rem 65px 2.5rem;
+  margin: 55px 2.5rem 45px 2.5rem;
   --border-size: 3px;
   --border-angle: 0turn;
   height: 60%;
