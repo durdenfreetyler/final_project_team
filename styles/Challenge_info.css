@@ -49,7 +49,6 @@
 
 .card__clock-info {
   float: right;
-  margin-right: 35px;
 }
 
 .card__img {
@@ -122,6 +121,7 @@
   margin-top: 5px;
   margin-bottom: 10px;
   font-family: "Roboto Slab", serif;
+  font-size: 20px;
 }
 
 .card__by {
