@@ -25,13 +25,11 @@ function ChallengePointsList() {
   };
 
   return (
-    <div
-      style={{ overflowY: scrollable ? "scroll" : "hidden", height: "200px" }}
-    >
+    <div>
       <h2>Challenge Points List</h2>
       <table>
         <thead>
-          <tr>
+          <tr className="dropdown-Points">
             <th>Player</th>
             <th>Created Date</th>
             <th>Challenge Points</th>
@@ -39,7 +37,7 @@ function ChallengePointsList() {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr
+            <tr 
               key={user.id}
               style={{
                 background: user.id === currentUser.id ? "yellow" : "white",

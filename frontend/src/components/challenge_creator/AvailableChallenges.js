@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../scss/dashboard.scss";
+import ChallengeForm from "./ChallengeCreator";
 
 function AvailableChallenges(props) {
   // const [challenges, setChallenges] = useState([]);
@@ -41,6 +42,8 @@ function AvailableChallenges(props) {
 
   return (
     <div className="challenges-box">
+      <ChallengeForm
+      />
       <div className="challenges-grid">
         {props.availableChallenges.map((challenge) => (
           <div className="challenge" key={challenge.id}>

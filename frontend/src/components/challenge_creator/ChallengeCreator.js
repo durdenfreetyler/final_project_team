@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../scss/challenge.scss";
 import axios from "axios";
+import Slider from "react-slick";
 
 function ChallengeForm(props) {
   const [title, setTitle] = useState("");
@@ -80,6 +81,7 @@ function ChallengeForm(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+      <h1>Create your Challenge here</h1>
         <label>
           Title:
           <input
@@ -115,9 +117,10 @@ function ChallengeForm(props) {
         </label>
         <button type="submit">Create Challenge</button>
       </form>
+    <Slider>
 
       {challenges.map((challenge) => (
-        <div className="card" key={challenge.id}>
+        <div className="cardsss" key={challenge.id}>
           <h2>{challenge.title}</h2>
           <p>{challenge.description}</p>
           <p>Points: {challenge.points}</p>
@@ -125,6 +128,7 @@ function ChallengeForm(props) {
           <button onClick={() => handleDelete(challenge.id)}>Delete</button>
         </div>
       ))}
+      </Slider>
     </div>
   );
 }
