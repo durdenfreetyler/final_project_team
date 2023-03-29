@@ -12,11 +12,11 @@ import { JoinChallenge } from "./JoinChallenge";
 
 
 
-=======
+
 import Card from "../front-page/cards";
 import ClearButton from "../Buttons/Clear-Button";
 import DeleteButton from "../Buttons/Delete-Button";
->>>>>>> a7014f509ce638189d347b8fe35967dfb585b9a9
+
 
 function ChallengeList(props) {
   const { userId } = props;
@@ -49,12 +49,12 @@ function ChallengeList(props) {
         // },
       ]);
 
-      console.log("response", response);
+      //console.log("response", response);
     } catch (error) {
       console.error(error.message);
     }
   };
-  console.log("expiredChallenges", expiredChallenges);
+  //console.log("expiredChallenges", expiredChallenges);
 
 
   /*
@@ -211,7 +211,7 @@ function ChallengeList(props) {
               <DeleteButton onClick={() => handleDelete(challenge.challenge_id)}/>
               {challenge.completed_before_expiration ? (
                   <p>
-                    Completed, not need to donate.
+                    Completed, do not need to donate.
                   </p>
                 ) : (
                   <p>

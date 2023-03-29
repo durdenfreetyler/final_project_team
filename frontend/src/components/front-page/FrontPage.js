@@ -7,8 +7,8 @@ import Leaderboard from './LeaderBoard'
 import Slideshow from './SlideShow';
 import SignupSlideshow from './SlideShow';
 import { Helmet } from 'react-helmet';
-import EnticeSignup from './enticelogin';
-import ChallengeArticles from './grid';
+//import EnticeSignup from './enticelogin';
+//import ChallengeArticles from './grid';
 
 
 //import Leader_Button from './LeaderBoard_Button'
@@ -82,7 +82,7 @@ function HomePage() {
         </div>
       </header>
         <Card></Card>
-        <ChallengeArticles></ChallengeArticles>
+        {/*<ChallengeArticles></ChallengeArticles>*/}
         <div class="grid">
         <div class="challenge-grid">
         <Background></Background>
@@ -121,7 +121,7 @@ function HomePage() {
           <img src="https://i.pinimg.com/564x/db/63/df/db63dfb015cec41306deee05c762d2a0.jpg" alt="Logo"></img>
           <h3>Wok & Roll</h3>
         </div>
-        
+        </div>
         <div class="footer-social">
           <h3>Follow us on social media</h3>
           <div class="social-icons">
@@ -163,9 +163,9 @@ function HomePage() {
         </div>
         
       
-      </footer>
+    </footer>
     </div>
   );
-)}
+};
 
 export default HomePage;
