@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../../scss/challenge.scss";
 import axios from "axios";
 import Slider from "react-slick";
+import NavBar from "../front-page/NavBar";
+import Header from "../DashBoard/Header";
 
 function ChallengeForm(props) {
   const [title, setTitle] = useState("");

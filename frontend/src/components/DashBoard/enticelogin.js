@@ -35,7 +35,7 @@ const EnticeSignup = () => {
             </a>
       </div>
       <div className="logsin content">
-      <a href='/Our-Team'> 
+      <a href='/about-us'> 
         <div className="logsin-content">
           <div className="logsin-img">
             <img src="https://cdn.discordapp.com/attachments/1073664859222319154/1089408603171078174/rocky-steps-poster.webp" alt="Controller" />
