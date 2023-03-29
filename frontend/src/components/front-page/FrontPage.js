@@ -40,7 +40,7 @@ function HomePage() {
     <footer>
       <div class="footer-container">
         <div class="footer-logo">
-          <img src="https://i.pinimg.com/564x/db/63/df/db63dfb015cec41306deee05c762d2a0.jpg" alt="Logo"></img>
+          <img src="https://upload.wikimedia.org/wikipedia/en/6/66/Invasopen.jpeg" alt="Logo"></img>
           <h3>Challenge Accepted</h3>
         </div>
         
@@ -69,7 +69,7 @@ function HomePage() {
 
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2023 Challenge Champions. All rights reserved.</p>
+        <p>&copy; 2023 Challenge Accepted. All rights reserved.</p>
       </div>
     </footer>
 
