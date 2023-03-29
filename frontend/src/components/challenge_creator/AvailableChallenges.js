@@ -3,8 +3,8 @@ import axios from "axios";
 import "../../scss/dashboard.scss";
 
 function AvailableChallenges(props) {
-  const [challenges, setChallenges] = useState([]);
-  const { setCurrentChallenges, fetchUserChallenges } = props;  
+  // const [challenges, setChallenges] = useState([]);
+  const { setCurrentChallenges, fetchUserChallenges } = props;
 
   const joinChallenge = async (challengeId) => {
     try {
@@ -18,7 +18,11 @@ function AvailableChallenges(props) {
       console.log(response.data);
 
       // Add the newly joined challenge to the currentChallenges state array
-      console.log(challenges.find((challenge) => challenge.id === challengeId));
+      console.log(
+        props.availableChallenges.find(
+          (challenge) => challenge.id === challengeId
+        )
+      );
 
       // props.setCurrentChallenges((prevChallenges) => [
       //   ...prevChallenges,
@@ -31,27 +35,14 @@ function AvailableChallenges(props) {
     }
   };
 
-  const fetchChallenges = async () => {
-    try {
-      const response = await axios.get("http://localhost:3001/challenge");
-      const activeChallenges = response.data.filter((challenge) => {
-        const expirationDate = new Date(challenge.expiration_date);
-        const currentDate = new Date();
-        return expirationDate >= currentDate;
-      });
-      setChallenges(activeChallenges);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  useEffect(() => {
-    fetchChallenges();
-  }, []);
+  // useEffect(() => {
+  //   fetchChallenges();
+  // }, []);
 
   return (
     <div className="challenges-box">
       <div className="challenges-grid">
-        {challenges.map((challenge) => (
+        {props.availableChallenges.map((challenge) => (
           <div className="challenge" key={challenge.id}>
             <h3>{challenge.title}</h3>
             <p>{challenge.description}</p>

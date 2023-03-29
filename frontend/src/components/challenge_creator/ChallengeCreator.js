@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../scss/challenge.scss";
 import axios from "axios";
 
-function ChallengeForm() {
+function ChallengeForm(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [points, setPoints] = useState(1);
@@ -38,7 +38,12 @@ function ChallengeForm() {
           withCredentials: true,
         }
       );
+      console.log("New challenge created:", response.data);
+
+      console.log("Challenges before:", challenges);
       setChallenges([...challenges, response.data]);
+      console.log("Challenges after:", challenges);
+
       setTitle("");
       setDescription("");
       setPoints(1);
@@ -48,7 +53,7 @@ function ChallengeForm() {
       //console.log("response", response)
       //console.log("challenges", challenges);
       //console.log("response", response);
-
+      props.fetchAvailableChallenges();
     } catch (error) {
       console.error(error.message);
     }
