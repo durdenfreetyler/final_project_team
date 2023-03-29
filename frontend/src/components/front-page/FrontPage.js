@@ -36,7 +36,7 @@ function HomePage() {
     </div>
     <Slideshow></Slideshow>
     <EnticeSignup/>
-    <Leaderboard/>
+    {/* <Leaderboard/> */}
     <footer>
       <div class="footer-container">
         <div class="footer-logo">

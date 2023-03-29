@@ -17,15 +17,17 @@
 Leaderboard
 --------------------*/
 .leaderboard {
+  margin: 200px 10px 100px 10px;
   position: absolute;
-  z-index: 100;
-  left: 90%;
+  z-index: 7;
+  left: 80%;
   transform: translate(-50%, -50%);
-  width: 285px;
+  width: 25%;
   height: 308px;
   background: linear-gradient(to bottom, #3a404d, #181c26);
   border-radius: 10px;
   box-shadow: 0 7px 30px rgba(62, 9, 11, 0.3);
+  color: white;
 }
 
 .leaderboard h1 {
@@ -46,6 +48,7 @@ Leaderboard
 .leaderboard ol {
   counter-reset: leaderboard;
   padding: 10px 0 10px 0;
+  
 }
 
 .leaderboard ol li {
@@ -58,6 +61,8 @@ Leaderboard
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0) scale(1, 1);
+  letter-spacing: 2px;
+
 }
 
 .leaderboard ol li::before {
@@ -203,21 +208,21 @@ Leaderboard
   border-bottom: 8px solid #993639;
 }
 
-.leaderboard ol li:hover {
-  z-index: 2;
-  overflow: visible;
-}
+// .leaderboard ol li:hover {
+//   z-index: 2;
+//   overflow: visible;
+// }
 
-.leaderboard ol li:hover::after {
-  opacity: 1;
-  transform: scaleX(1.06) scaleY(1.03);
-}
+// .leaderboard ol li:hover::after {
+//   opacity: 1;
+//   transform: scaleX(1.06) scaleY(1.03);
+// }
 
-.leaderboard ol li:hover mark::before,
-.leaderboard ol li:hover mark::after {
-  opacity: 1;
-  transition: all 0.35s ease-in-out;
-}
+// .leaderboard ol li:hover mark::before,
+// .leaderboard ol li:hover mark::after {
+//   opacity: 1;
+//   transition: all 0.35s ease-in-out;
+// }
 
 .the-most {
   position: fixed;

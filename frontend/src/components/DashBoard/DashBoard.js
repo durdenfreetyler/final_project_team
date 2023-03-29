@@ -74,7 +74,6 @@ function Dashboard() {
         fetchUserChallenges={fetchUserChallenges}
         availableChallenges={availableChallenges}
       />
-      <ChallengeForm fetchAvailableChallenges={fetchAvailableChallenges} />
       <ChallengePointsList />
       <Donate />
     </div>
