@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../scss/dashboard.scss";
 import AvailableChallenges from "../challenge_creator/AvailableChallenges";
 import { ChallengeCheckIn } from "../challenge_creator/ChallengeCheckIn";
@@ -15,6 +15,21 @@ import ChallengePointsList from "../challenge_creator/ChallengePointsList";
 function Dashboard() {
   const [currentChallenges, setCurrentChallenges] = useState([]);
   const [expiredChallenges, setExpiredChallenges] = useState([]);
+  const [availableChallenges, setAvailableChallenges] = useState([]);
+
+  const fetchAvailableChallenges = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/challenge");
+      const activeChallenges = response.data.filter((challenge) => {
+        const expirationDate = new Date(challenge.expiration_date);
+        const currentDate = new Date();
+        return expirationDate >= currentDate;
+      });
+      setAvailableChallenges(activeChallenges);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const fetchUserChallenges = async () => {
     try {
@@ -38,6 +53,10 @@ function Dashboard() {
       console.error(error.message);
     }
   };
+  useEffect(() => {
+    fetchAvailableChallenges();
+    fetchUserChallenges();
+  }, []);
 
   return (
     <div className="formdash">
@@ -53,8 +72,9 @@ function Dashboard() {
       <AvailableChallenges
         setCurrentChallenges={setCurrentChallenges}
         fetchUserChallenges={fetchUserChallenges}
+        availableChallenges={availableChallenges}
       />
-      <ChallengeForm />
+      <ChallengeForm fetchAvailableChallenges={fetchAvailableChallenges} />
       <ChallengePointsList />
       <Donate />
     </div>

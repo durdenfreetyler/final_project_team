@@ -54,32 +54,9 @@ function ChallengeList(props) {
     }
   };
 
-  // const fetchUserChallenges = async () => {
-  //   try {
-  //     const response = await axios.get(`http://localhost:3001/user_challenge`, {
-  //       withCredentials: true,
-  //     });
-  //     const challenges = response.data;
-  //     const currentDate = new Date().getTime();
-  //     const expired = challenges.filter(
-  //       (challenge) =>
-  //         currentDate >=
-  //         new Date(challenge.expiration_date.toString()).getTime()
-  //     );
-  //     const active = challenges.filter(
-  //       (challenge) =>
-  //         currentDate < new Date(challenge.expiration_date.toString()).getTime()
-  //     );
-  //     setCurrentChallenges(active);
-  //     setExpiredChallenges(expired);
-  //   } catch (error) {
-  //     console.error(error.message);
-  //   }
-  // };
-
-  useEffect(() => {
-    fetchUserChallenges();
-  }, []);
+  // useEffect(() => {
+  //   fetchUserChallenges();
+  // }, []);
   const handleDelete = async (id) => {
     try {
       await axios({
