@@ -26,7 +26,7 @@ function ChallengePointsList() {
 
   return (
     <div className="leaderboard"
-    style={{ overflowY: scrollable ? "scroll" : "hidden", height: "300px" }}>
+    style={{ overflowY: scrollable ? "scroll" : "hidden", height: "400px" }}>
       <table className="points-table">
       <h1>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

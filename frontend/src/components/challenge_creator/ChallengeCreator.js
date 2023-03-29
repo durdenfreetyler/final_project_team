@@ -81,10 +81,11 @@ function ChallengeForm(props) {
   };
 
   return (
-    <div>
+    <div className="create-background">
       <NavBar/>
-      <form onSubmit={handleSubmit}>
+      <form className="create" onSubmit={handleSubmit}>
       <h1>Create your Challenge here</h1>
+      <div class="form__group field">
         <label>
           Title:
           <input
@@ -110,6 +111,7 @@ function ChallengeForm(props) {
             onChange={(event) => setPoints(event.target.value)}
           />
         </label>
+      </div>
         <label>
           Challenge To Be Completed By:
           <input

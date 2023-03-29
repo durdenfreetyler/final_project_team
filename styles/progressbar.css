@@ -1,6 +1,6 @@
 .progress-add {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-right: 58px;
 }
