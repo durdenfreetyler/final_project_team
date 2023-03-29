@@ -4,7 +4,7 @@ import "../../scss/dashboard.scss";
 
 function AvailableChallenges(props) {
   const [challenges, setChallenges] = useState([]);
-  const { setCurrentChallenges } = props;
+  const { setCurrentChallenges, fetchUserChallenges } = props;  
 
   const joinChallenge = async (challengeId) => {
     try {

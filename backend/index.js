@@ -247,6 +247,42 @@ app.get("/user_challenge", (req, res) => {
         .send("An error occurred while retrieving user challenge data.");
     });
 });
+
+app.get("/users_with_points", (req, res) => {
+  knex
+    .select(
+      "users.id",
+      "users.first_name",
+      "users.last_name",
+      "users.created_date",
+      knex.raw("SUM(challenge.points) AS total_points")
+    )
+    .from("users")
+    .join("user_challenge", "users.id", "=", "user_challenge.user_id")
+    .join("challenge", "user_challenge.challenge_id", "=", "challenge.id")
+    // .where("user_challenge.completed_before_expiration", true)
+    .groupBy("users.id")
+    .orderBy("total_points", "desc")
+    .then((result) => {
+      console.log("result", result);
+      // Modify the user objects to match the property names in the ChallengePointsList component
+      const users = result.map((user) => ({
+        id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        created_date: user.created_date,
+        totalPoints: user.total_points || user.challenge_points,
+      }));
+      res.json(users);
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .send("An error occurred while retrieving user points data.");
+    });
+});
+
 // Join statement between User, User_Challenge, and Challenge tables
 app.get("/u-c-uc", (req, res) => {
   knex

@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { JoinChallenge } from "./JoinChallenge";
-import AvailableChallenges from "./AvailableChallenges";
 import DeleteButton from "../Buttons/Delete-Button";
 import Slider from "react-slick";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import '../../scss/challenge.scss'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../../scss/challenge.scss";
 import ProgressCard from "../ProgressBar/ProgressCard";
 import AddButton from "../Buttons/Add-button";
 import ClearButton from "../Buttons/Clear-button";
 
 function ChallengeList(props) {
-  const { userId } = props;
-  const [currentChallenges, setCurrentChallenges] = useState([]);
-  const [expiredChallenges, setExpiredChallenges] = useState([]);
+  const {
+    userId,
+    fetchUserChallenges,
+    setExpiredChallenges,
+    setCurrentChallenges,
+    currentChallenges,
+    expiredChallenges,
+  } = props;
+  // const [currentChallenges, setCurrentChallenges] = useState([]);
+  // const [expiredChallenges, setExpiredChallenges] = useState([]);
 
   const handleChallengeCheckIn = async (challengeId) => {
     try {
@@ -47,59 +53,58 @@ function ChallengeList(props) {
       console.error(error.message);
     }
   };
- 
 
-  const fetchUserChallenges = async () => {
-    try {
-      const response = await axios.get(`http://localhost:3001/user_challenge`, {
-        withCredentials: true,
-      });
-      const challenges = response.data;
-      const currentDate = new Date().getTime();
-      const expired = challenges.filter(
-        (challenge) =>
-          currentDate >=
-          new Date(challenge.expiration_date.toString()).getTime()
-      );
-      const active = challenges.filter(
-        (challenge) =>
-          currentDate < new Date(challenge.expiration_date.toString()).getTime()
-      );
-      setCurrentChallenges(active);
-      setExpiredChallenges(expired);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
+  // const fetchUserChallenges = async () => {
+  //   try {
+  //     const response = await axios.get(`http://localhost:3001/user_challenge`, {
+  //       withCredentials: true,
+  //     });
+  //     const challenges = response.data;
+  //     const currentDate = new Date().getTime();
+  //     const expired = challenges.filter(
+  //       (challenge) =>
+  //         currentDate >=
+  //         new Date(challenge.expiration_date.toString()).getTime()
+  //     );
+  //     const active = challenges.filter(
+  //       (challenge) =>
+  //         currentDate < new Date(challenge.expiration_date.toString()).getTime()
+  //     );
+  //     setCurrentChallenges(active);
+  //     setExpiredChallenges(expired);
+  //   } catch (error) {
+  //     console.error(error.message);
+  //   }
+  // };
 
   useEffect(() => {
     fetchUserChallenges();
   }, []);
-   const handleDelete = async (id) => {
-     try {
-       await axios({
-         baseURL: `http://localhost:3001/challenge`,
-         url: `/${id}`,
-         method: "DELETE",
-         headers: { "Content-Type": "application/json" },
-         withCredentials: true,
-       });
-       const newExpired = expiredChallenges.filter(
-         (challenge) => challenge.challenge_id !== id
-       );
-       //console.log('new expired', newExpired)
-       setExpiredChallenges(newExpired);
-       const newCurrent = currentChallenges.filter(
-         (challenge) => challenge.challenge_id !== id
-       );
-       //console.log('new Current', newCurrent)
-       setCurrentChallenges(newCurrent);
-       //console.log('current challenges', currentChallenges)
-     } catch (error) {
-       console.error(error);
-     }
-   };
-   const settings = {
+  const handleDelete = async (id) => {
+    try {
+      await axios({
+        baseURL: `http://localhost:3001/challenge`,
+        url: `/${id}`,
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+      const newExpired = expiredChallenges.filter(
+        (challenge) => challenge.challenge_id !== id
+      );
+      //console.log('new expired', newExpired)
+      setExpiredChallenges(newExpired);
+      const newCurrent = currentChallenges.filter(
+        (challenge) => challenge.challenge_id !== id
+      );
+      //console.log('new Current', newCurrent)
+      setCurrentChallenges(newCurrent);
+      //console.log('current challenges', currentChallenges)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -112,23 +117,22 @@ function ChallengeList(props) {
     },
   };
 
-
   return (
     <div className="lols">
       <Slider {...settings}>
         {currentChallenges.map((challenge) => (
           <div className="challenge-card" key={challenge.id}>
             <div>
-            <ProgressCard />
+              <ProgressCard />
             </div>
             <h3>{challenge.title}</h3>
             <p>{challenge.description}</p>
             <p>Points: {challenge.points}</p>
             <p>Expiration Date: {challenge.expiration_date}</p>
-            <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
+            <DeleteButton
+              onClick={() => handleDelete(challenge.challenge_id)}
+            />
             <ClearButton onClick={() => handleChallengeCheckIn(challenge.id)} />
-           
-              
           </div>
         ))}
       </Slider>
@@ -139,23 +143,25 @@ function ChallengeList(props) {
             <p>{challenge.description}</p>
             <p>Points: {challenge.points}</p>
             <p>Expiration Date: {challenge.expiration_date}</p>
-            <DeleteButton onClick={() => handleDelete(challenge.challenge_id)} />
+            <DeleteButton
+              onClick={() => handleDelete(challenge.challenge_id)}
+            />
             {challenge.completed_before_expiration ? (
               <p>
-                Player completed challenge before expiration and did not donate to
-                charity
+                Player completed challenge before expiration and did not donate
+                to charity
               </p>
             ) : (
               <p>
-                Player did not complete challenge before expiration and donated to
-                charity
+                Player did not complete challenge before expiration and donated
+                to charity
               </p>
             )}
           </div>
         ))}
       </Slider>
     </div>
-  );  
+  );
 }
 
 export default ChallengeList;
